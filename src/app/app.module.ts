@@ -26,6 +26,9 @@ import { LiveNewsDetailsComponent } from './live-news-details/live-news-details.
 import { ResultsComponent } from './results/results.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { InPlayComponent } from './in-play/in-play.component';
+import { HttpClientModule} from '@angular/common/http';
+import {AppRoutingModule} from './app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +59,9 @@ import { InPlayComponent } from './in-play/in-play.component';
     InPlayComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

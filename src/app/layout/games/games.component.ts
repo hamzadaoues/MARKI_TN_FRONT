@@ -1,15 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {GetLiveMatchesService} from '../../_services/get-live-matches.service';
+
+declare let $: any;
 
 @Component({
   selector: 'app-games',
   templateUrl: './games.component.html',
   styleUrls: ['./games.component.css']
 })
+
+
 export class GamesComponent implements OnInit {
 
-  constructor() { }
+  liveMatches = [];
+  split = [];
+  @Output() loaded = new EventEmitter<boolean>()
 
-  ngOnInit() {
+  constructor(private liveMatchesService: GetLiveMatchesService) {
   }
 
+  ngOnInit() {
+
+    this.getLiveScores();
+  }
+
+  getLiveScores() {
+    this.liveMatchesService.getLiveScores().subscribe((data: any) => {
+      data.data.match.forEach((match) => {
+        if (match.status === 'IN PLAY' || match.status === 'HALF TIME BREAK') {
+          this.liveMatches.push(match);
+        }
+      });
+      this.loaded.emit(true)
+      console.log(this.liveMatches);
+    });
+  }
+
+  getHomeScore(matchScore: string) {
+      this.split = matchScore.split('-');
+      return this.split[0].trim();
+  }
+
+  getAwayScore(matchScore: string) {
+    this.split = matchScore.split('-');
+    return this.split[1].trim();
+  }
 }
