@@ -5,6 +5,8 @@ import {InPlayComponent} from './in-play/in-play.component';
 import {LoginComponent} from './login/login.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {ErrorNotFoundComponent} from './error-not-found/error-not-found.component';
+import {StandingsComponent} from './standings/standings.component';
+import {ResultsComponent} from './results/results.component';
 
 
 const routes: Routes = [
@@ -82,6 +84,18 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegistrationComponent
+  },
+  {
+    path: 'results',
+    component: ResultsComponent
+  },
+  {
+    path: 'championsLeague/:leagueId',
+    component: StandingsComponent
+  },
+  {
+    path: 'europaLeague/:leagueId',
+    component: StandingsComponent
   },
   {
     path: '**',

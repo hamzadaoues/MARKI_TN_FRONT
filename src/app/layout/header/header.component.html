@@ -14,7 +14,13 @@
             <li [ngClass]="{'active' : pageName === 'In-play'  }"><a href="/in-play">In-play</a></li>
             <li [ngClass]="{'active' : pageName === 'Promotion'  }"><a href="promotion.html">Promotion</a></li>
             <li [ngClass]="{'active' : pageName === 'Statistics'  }"><a href="statistics.html">Statistics</a></li>
-            <li [ngClass]="{'active' : pageName === 'Result'  }"><a href="result.html">Results</a></li>
+            <li [ngClass]="{'active' : pageName === 'Result'  }"><a routerLink="/results">Results</a></li>
+            <li class="menu_has_children"><a href="#">Standings</a>
+              <ul class="sub-menu">
+                <li [ngClass]="{'active' : pageName === 'ChampionsLeague' }" ><a routerLink="/championsLeague/84">UEFA Champions League</a></li>
+                <li [ngClass]="{'active' : pageName === 'EuropaLeague'  }"><a routerLink="/europaLeague/88">UEFA Europa League</a></li>
+              </ul>
+            </li>
             <li class="menu_has_children"><a href="#0">pages</a>
               <ul class="sub-menu">
                 <li [ngClass]="{'active' : pageName === 'About-us' }" ><a href="about.html">About us</a></li>
