@@ -29,6 +29,13 @@ import { InPlayComponent } from './in-play/in-play.component';
 import { HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import { StandingsComponent } from './standings/standings.component';
+import { ImagePreloadDirective } from './_directives/image-preload.directive';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 
 
 @NgModule({
@@ -58,12 +65,22 @@ import { StandingsComponent } from './standings/standings.component';
     ResultsComponent,
     AboutUsComponent,
     InPlayComponent,
-    StandingsComponent
+    StandingsComponent,
+    ImagePreloadDirective
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

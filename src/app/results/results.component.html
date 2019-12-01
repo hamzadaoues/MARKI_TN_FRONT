@@ -1,8 +1,4 @@
 
-<!-- preloader start -->
-
-<!-- preloader end -->
-
 <app-custom-cursor></app-custom-cursor>
 <!--  header-section start  -->
 <app-header></app-header>
@@ -18,7 +14,7 @@
             <h3 class="title">Results</h3>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="index.html">home</a></li>
-              <li class="breadcrumb-item active">Result</li>
+              <li class="breadcrumb-item active">results</li>
             </ol>
           </div>
         </div>
@@ -27,41 +23,130 @@
   </div>
 </section>
 <!-- banner-section end -->
-<!-- result-section start -->
-<div *ngIf="!isDataAvailable">
-  <app-preloader></app-preloader>
-</div>
-<section class="result-section section-padding">
+
+<!-- statistics-section start -->
+<section class="statistics-section section-padding padding-top-95">
   <div class="container">
-    <div  class="row mt-mb-15">
-      <div  *ngFor="let match of pastMacthes" class="col-lg-6">
-        <div class="result-item d-flex text-center align-items-center justify-content-center">
-          <div class="team team--left">
-            <span class="name">{{match.home_name| slice:0:8}}</span>
-            <span class="flag"><img src="assets/images/flag/uruguay.jpg" alt="image"></span>
-          </div>
-          <div class="result-details">
-            <p>
-              <span class="left-team-result">{{match.score}}</span>
-            </p>
-            <span class="date">{{match.added| slice:0:10}}</span>
-          </div>
-          <div class="team team--right">
-            <span class="name">{{match.away_name| slice:0:8}}</span>
-            <span class="flag"><img src="assets/images/flag/brazil.jpg" alt="image"></span>
-          </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="text-md-center">
+        <mat-form-field >
+        <input #date [max]="maxDate" matInput [matDatepicker]="picker" placeholder="Please choose a date" (dateChange)="dataChange(date.value)">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
         </div>
-      </div><!-- result-item end -->
+        <div class="statistics-table-result-part">
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="football" role="tabpanel" aria-labelledby="football-tab">
+              <div class="accordion" id="accordionExample-1">
+                <div class="card">
+                  <div class="card-header" id="champ-league">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                              aria-expanded="true" aria-controls="collapseOne">Champions League
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseOne" class="collapse show" aria-labelledby="world-cup"
+                       data-parent="#accordionExample-1">
+                    <div class="card-body">
+                      <div class="statistics-result-table d-flex">
+                        <div class="statistics-result-area">
+                          <div *ngIf="!isDataCLAvailable" class="spinner-grow" role="status">
+                            <span class="sr-only"></span>
+                          </div>
+                          <div *ngIf="isDataCLAvailable">
+                          <div *ngIf="!champLeague?.length > 0">
+                            No results available for this date
+                          </div>
+                          </div>
+                          <div *ngFor="let match of champLeague" class="result-single d-flex align-items-center">
+                            <div class="details">
+                              <p>{{match.date}}</p>
+                              <p>{{match.location}}</p>
+                            </div>
+                            <div class="team-area">
+                              <div class="first-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.home_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:0:1}}</span>
+                              </div>
+                              <div class="second-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.away_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:4:5}}</span>
+                              </div>
+                            </div>
+                          </div><!-- result-single end -->
+                        </div><!-- statistics-result-area end -->
+                      </div><!-- statistics-result-table end -->
+                    </div>
+                  </div>
+<br>
+                  <div class="card-header" id="europa">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                              data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Europa League
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="world-cup"
+                       data-parent="#accordionExample-1">
+                    <div class="card-body">
+                      <div class="statistics-result-table d-flex">
+                        <div class="statistics-result-area">
+                          <div *ngIf="!isDataCLAvailable" class="spinner-grow" role="status">
+                            <span class="sr-only"></span>
+                          </div>
+                          <div *ngIf="isDataCLAvailable">
+                          <div *ngIf="!europaLeague?.length > 0">
+                            No results available for this date
+                          </div>
+                          </div>
+                          <div *ngFor="let match of europaLeague" class="result-single d-flex align-items-center">
+                            <div class="details">
+                              <p>{{match.date}}</p>
+                              <p>{{match.location}}</p>
+                            </div>
+                            <div class="team-area">
+                              <div class="first-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.home_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:0:1}}</span>
+                              </div>
+                              <div class="second-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.away_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:4:5}}</span>
+                              </div>
+                            </div>
+                          </div><!-- result-single end -->
+                        </div><!-- statistics-result-area end -->
+                      </div><!-- statistics-result-table end -->
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- online-play-tab-part end -->
+      </div>
     </div>
   </div>
+  </div>
 </section>
-<!-- result-section end -->
-<!-- league-result-section end -->
+<!-- statistics-section end -->
 
 <!-- footer-section start -->
 <app-footer></app-footer>
 <!-- footer-section end -->
 
-<!-- scroll-to-top start -->
 <app-scroll-to-top></app-scroll-to-top>
-<!-- scroll-to-top end -->
