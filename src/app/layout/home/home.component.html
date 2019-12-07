@@ -1,15 +1,15 @@
 <app-preloader></app-preloader>
 <app-custom-cursor> </app-custom-cursor>
-<app-header [pageName]="'Home'" *ngIf="loaded"></app-header>
+<app-header [pageName]="'Home'" ></app-header>
 
-<app-banner *ngIf="loaded"></app-banner>
-<app-features-box *ngIf="loaded"> </app-features-box>
+<app-banner ></app-banner>
+<app-features-box > </app-features-box>
 <app-games (loaded)="loaded=$event"></app-games>
-<app-download-app-section *ngIf="loaded"></app-download-app-section>
-<app-steps-to-play *ngIf="loaded"></app-steps-to-play>
-<app-our-services *ngIf="loaded"></app-our-services>
-<app-testimonial *ngIf="loaded"></app-testimonial>
-<app-live-news *ngIf="loaded"></app-live-news>
+<app-download-app-section ></app-download-app-section>
+<app-steps-to-play ></app-steps-to-play>
+<app-our-services ></app-our-services>
+<app-testimonial ></app-testimonial>
+<app-live-news ></app-live-news>
 
-<app-footer *ngIf="loaded"></app-footer>
-<app-scroll-to-top *ngIf="loaded"></app-scroll-to-top>
+<app-footer ></app-footer>
+<app-scroll-to-top ></app-scroll-to-top>
