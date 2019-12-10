@@ -7,6 +7,8 @@ import {RegistrationComponent} from './registration/registration.component';
 import {ErrorNotFoundComponent} from './error-not-found/error-not-found.component';
 import {StandingsComponent} from './standings/standings.component';
 import {ResultsComponent} from './results/results.component';
+import {ResetPasswordComponent} from './reset-password/reset-password.component';
+import {AuthGuard} from './_helpers/auth.guard';
 
 
 const routes: Routes = [
@@ -14,6 +16,14 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'resetPassword',
+    component: ResetPasswordComponent,
   },
   /*
   {
@@ -78,15 +88,12 @@ const routes: Routes = [
     component: InPlayComponent
   },
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
     path: 'register',
     component: RegistrationComponent
   },
   {
     path: 'results',
+    canActivate: [AuthGuard],
     component: ResultsComponent
   },
   {

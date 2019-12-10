@@ -6,24 +6,36 @@
         <div class="registration-block text-center">
           <div class="registration-block-inner">
             <h3 class="title">Create a new account</h3>
-            <form class="cmn-form registration-form">
+            <form class="cmn-form registration-form" [formGroup]="registerForm" (ngSubmit)="onFormSubmit(registerForm.value)">
               <div class="frm-group">
-                <input type="text" name="f-name" id="f-name" placeholder="First Name">
+                <input matInput type="text" name="f-name" id="f-name" placeholder="Full name" formControlName="name"[errorStateMatcher]="matcher">
+                <mat-error>
+                  <span *ngIf="!registerForm.get('name').valid && registerForm.get('name').touched">Please enter your Full Name</span>
+                </mat-error>
               </div>
               <div class="frm-group">
-                <input type="text" name="l-name" id="l-name" placeholder="Last Name">
+                <input matInput type="text" name="l-name" id="l-name" placeholder="Username" formControlName="username" [errorStateMatcher]="matcher">
+                <mat-error>
+                  <span *ngIf="!registerForm.get('username').valid && registerForm.get('username').touched">Please enter your Username</span>
+                </mat-error>
               </div>
               <div class="frm-group">
-                <input type="email" name="name" id="name" placeholder="Your Email">
+                <input matInput type="email" name="name" id="name" placeholder="Your Email" formControlName="email"[errorStateMatcher]="matcher">
+                <mat-error>
+                  <span *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">Please enter your Email</span>
+                </mat-error>
               </div>
               <div class="frm-group">
-                <input type="password" name="pass" id="pass" placeholder="Your Password">
+                <input matInput type="password" name="pass" id="pass" placeholder="Your Password" formControlName="password"[errorStateMatcher]="matcher">
+                <mat-error>
+                  <span *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">Please enter your Password</span>
+                </mat-error>
               </div>
               <div class="frm-group">
-                <input type="password" name="re-pass" id="re-pass" placeholder="Enter Re-Password">
+                <input matInput type="password" name="re-pass" id="re-pass" placeholder="Enter Re-Password" [errorStateMatcher]="matcher">
               </div>
               <div class="frm-group">
-                <button type="submit" class="submit-btn">Sign Up</button>
+                <button type="submit"  [disabled]="!registerForm.valid" class="submit-btn">Sign Up</button>
               </div>
             </form>
           </div>
