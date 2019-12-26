@@ -6,6 +6,10 @@ import {LoginComponent} from './login/login.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {ErrorNotFoundComponent} from './error-not-found/error-not-found.component';
 import {BetSheetDetailsComponent} from './bet-sheet-details/bet-sheet-details.component';
+import {AboutUsComponent} from './about-us/about-us.component';
+import {ContactUsComponent} from './contact-us/contact-us.component';
+import {PromotionsComponent} from './promotions/promotions.component';
+import {ResultsComponent} from './results/results.component';
 
 
 const routes: Routes = [
@@ -77,8 +81,20 @@ const routes: Routes = [
     component: InPlayComponent
   },
   {
-    path: 'my-bet-sheets',
-    component: BetSheetDetailsComponent
+    path: 'about-us',
+    component: AboutUsComponent
+  },
+  {
+    path: 'contact-us',
+    component: ContactUsComponent
+  },
+  {
+    path: 'promotions',
+    component: PromotionsComponent
+  },
+  {
+    path: 'results',
+    component: ResultsComponent
   },
   {
     path: 'login',
