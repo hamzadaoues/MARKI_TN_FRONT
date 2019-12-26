@@ -14,7 +14,7 @@ export class GamesComponent implements OnInit {
 
   liveMatches = [];
   split = [];
-  @Output() loaded = new EventEmitter<boolean>()
+  loading = true;
 
   constructor(private liveMatchesService: GetLiveMatchesService) {
   }
@@ -31,7 +31,7 @@ export class GamesComponent implements OnInit {
           this.liveMatches.push(match);
         }
       });
-      this.loaded.emit(true)
+      this.loading = false;
       console.log(this.liveMatches);
     });
   }

@@ -10,11 +10,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav main-menu ml-auto">
-            <li [ngClass]="{'active' : pageName === 'Home'  }"><a href="/home">Home</a></li>
-            <li [ngClass]="{'active' : pageName === 'In-play'  }"><a href="/in-play">In-play</a></li>
+            <li [ngClass]="{'active' : pageName === 'Home'  }"><a routerLink="/home">Home</a></li>
+            <li [ngClass]="{'active' : pageName === 'In-play'  }"><a routerLink="/in-play">In-play</a></li>
             <li [ngClass]="{'active' : pageName === 'Promotion'  }"><a href="promotion.html">Promotion</a></li>
             <li [ngClass]="{'active' : pageName === 'Statistics'  }"><a href="statistics.html">Statistics</a></li>
             <li [ngClass]="{'active' : pageName === 'Result'  }"><a href="result.html">Results</a></li>
+            <li [ngClass]="{'active' : pageName === 'MyBetSheets'  }"><a routerLink="/my-bet-sheets">My-Bet-Sheets</a></li>
             <li class="menu_has_children"><a href="#0">pages</a>
               <ul class="sub-menu">
                 <li [ngClass]="{'active' : pageName === 'About-us' }" ><a href="about.html">About us</a></li>

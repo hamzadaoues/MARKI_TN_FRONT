@@ -28,6 +28,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { InPlayComponent } from './in-play/in-play.component';
 import { HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
+import { BetSheetDetailsComponent } from './bet-sheet-details/bet-sheet-details.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import {AppRoutingModule} from './app-routing.module';
     LiveNewsDetailsComponent,
     ResultsComponent,
     AboutUsComponent,
-    InPlayComponent
+    InPlayComponent,
+    BetSheetDetailsComponent
   ],
   imports: [
     BrowserModule,

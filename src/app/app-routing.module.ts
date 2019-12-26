@@ -5,6 +5,7 @@ import {InPlayComponent} from './in-play/in-play.component';
 import {LoginComponent} from './login/login.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {ErrorNotFoundComponent} from './error-not-found/error-not-found.component';
+import {BetSheetDetailsComponent} from './bet-sheet-details/bet-sheet-details.component';
 
 
 const routes: Routes = [
@@ -74,6 +75,10 @@ const routes: Routes = [
   {
     path: 'in-play',
     component: InPlayComponent
+  },
+  {
+    path: 'my-bet-sheets',
+    component: BetSheetDetailsComponent
   },
   {
     path: 'login',
