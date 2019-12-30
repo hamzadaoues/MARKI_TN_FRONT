@@ -1,6 +1,4 @@
 
-
-
 <section class="login-section section-padding">
   <div class="container">
     <div class="row justify-content-center">
@@ -8,18 +6,27 @@
         <div class="login-block text-center">
           <div class="login-block-inner">
             <h3 class="title">login your account </h3>
-            <form class="cmn-form login-form">
+            <form class="cmn-form login-form" [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
               <div class="frm-group">
-                <input type="text" name="f-name" id="f-name" placeholder="Your Name">
+
+                <input matInput type="text" name="f-name" id="f-name" formControlName="usernameOrEmail"
+                       [errorStateMatcher]="matcher" placeholder="UsernameOrEmail">
+                  <mat-error>
+                    <span *ngIf="!loginForm.get('usernameOrEmail').valid && loginForm.get('usernameOrEmail').touched">Please enter your email</span>
+                  </mat-error>
+
               </div>
               <div class="frm-group">
-                <input type="password" name="pass" id="pass" placeholder="Your Password">
+                <input matInput type="password" name="pass" id="pass" formControlName="password" placeholder="Your Password"[errorStateMatcher]="matcher">
+                <mat-error>
+                  <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter your password</span>
+                </mat-error>
               </div>
               <div class="frm-group">
-                <button type="submit" class="submit-btn">Sign In</button>
+                <button type="submit" [disabled]="!loginForm.valid" class="submit-btn">Sign In</button>
               </div>
             </form>
-            <p><a href="#0">Haven't your any account in here?</a><a href="#0">Forget password?</a></p>
+            <p><a [routerLink]="['/register']">Haven't your any account in here?</a><a [routerLink]="['/resetPassword']">Forget password?</a></p>
           </div>
         </div>
       </div>

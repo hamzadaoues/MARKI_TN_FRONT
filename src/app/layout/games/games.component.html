@@ -73,6 +73,7 @@
                         <th class="choice-team">bet your choose team</th>
                         <th class="bet-num">total bet</th>
                       </tr>
+
                       </thead>
                       <tbody>
                       <tr *ngFor="let match of liveMatches">
@@ -109,6 +110,12 @@
                         </td>
                         <td>
                           <span class="bet-count-num">+19<i class="fa fa-angle-right"></i></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td *ngIf="!liveMatches?.length > 0">
+                          No results available for this date
+
                         </td>
                       </tr>
                       </tbody>

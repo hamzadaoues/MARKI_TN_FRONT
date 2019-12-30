@@ -1,10 +1,8 @@
 
-
 <app-custom-cursor></app-custom-cursor>
 <!--  header-section start  -->
 <app-header></app-header>
 <!--  header-section end  -->
-
 <!-- banner-section start -->
 <section class="breadcum-section">
   <div class="breadcum-area">
@@ -15,7 +13,7 @@
             <h3 class="title">Results</h3>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="index.html">home</a></li>
-              <li class="breadcrumb-item active">Result</li>
+              <li class="breadcrumb-item active">results</li>
             </ol>
           </div>
         </div>
@@ -25,365 +23,453 @@
 </section>
 <!-- banner-section end -->
 
-<!-- result-section start -->
-<section class="result-section section-padding">
+<!-- statistics-section start -->
+<section class="statistics-section section-padding padding-top-95">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-lg-6">
-        <div class="section-header text-center">
-          <h2 class="section-title">World Cup Result</h2>
-          <p>On insensible possession oh particular attachment at excellence in. The books arose but miles happy she.</p>
+      <div class="col-lg-10">
+        <div class="text-md-center">
+        <mat-form-field >
+        <input #date [max]="maxDate" matInput [matDatepicker]="picker" placeholder="Please choose a date" (dateChange)="dataChange(date.value)">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
         </div>
-      </div>
-    </div>
-    <div class="row mt-mb-15">
-      <div class="col-lg-6">
-        <div class="result-item d-flex text-center align-items-center justify-content-center">
-          <div class="team team--left">
-            <span class="name">Uruguay</span>
-            <span class="flag"><img src="assets/images/flag/uruguay.jpg" alt="image"></span>
-          </div>
-          <div class="result-details">
-            <p>
-              <span class="left-team-result">1</span>
-              <span class="right-team-result">3</span>
-            </p>
-            <span class="date">5, Mar</span>
-          </div>
-          <div class="team team--right">
-            <span class="name">brazil</span>
-            <span class="flag"><img src="assets/images/flag/brazil.jpg" alt="image"></span>
-          </div>
-        </div>
-      </div><!-- result-item end -->
-      <div class="col-lg-6">
-        <div class="result-item d-flex text-center align-items-center justify-content-center">
-          <div class="team team--left">
-            <span class="name">Argentina</span>
-            <span class="flag"><img src="assets/images/flag/argentina.jpg" alt="image"></span>
-          </div>
-          <div class="result-details">
-            <p>
-              <span class="left-team-result">1</span>
-              <span class="right-team-result">3</span>
-            </p>
-            <span class="date">5, Mar</span>
-          </div>
-          <div class="team team--right">
-            <span class="name">swizarland</span>
-            <span class="flag"><img src="assets/images/flag/swizerland.jpg" alt="image"></span>
-          </div>
-        </div>
-      </div><!-- result-item end -->
-      <div class="col-lg-6">
-        <div class="result-item d-flex text-center align-items-center justify-content-center">
-          <div class="team team--left">
-            <span class="name">Argentina</span>
-            <span class="flag"><img src="assets/images/flag/argentina.jpg" alt="image"></span>
-          </div>
-          <div class="result-details">
-            <p>
-              <span class="left-team-result">1</span>
-              <span class="right-team-result">3</span>
-            </p>
-            <span class="date">5, Mar</span>
-          </div>
-          <div class="team team--right">
-            <span class="name">swizarland</span>
-            <span class="flag"><img src="assets/images/flag/swizerland.jpg" alt="image"></span>
-          </div>
-        </div>
-      </div><!-- result-item end -->
-      <div class="col-lg-6">
-        <div class="result-item d-flex text-center align-items-center justify-content-center">
-          <div class="team team--left">
-            <span class="name">Uruguay</span>
-            <span class="flag"><img src="assets/images/flag/uruguay.jpg" alt="image"></span>
-          </div>
-          <div class="result-details">
-            <p>
-              <span class="left-team-result">1</span>
-              <span class="right-team-result">3</span>
-            </p>
-            <span class="date">5, Mar</span>
-          </div>
-          <div class="team team--right">
-            <span class="name">brazil</span>
-            <span class="flag"><img src="assets/images/flag/brazil.jpg" alt="image"></span>
-          </div>
-        </div>
-      </div><!-- result-item end -->
-      <div class="col-lg-6">
-        <div class="result-item d-flex text-center align-items-center justify-content-center">
-          <div class="team team--left">
-            <span class="name">england</span>
-            <span class="flag"><img src="assets/images/flag/england.jpg" alt="image"></span>
-          </div>
-          <div class="result-details">
-            <p>
-              <span class="left-team-result">1</span>
-              <span class="right-team-result">3</span>
-            </p>
-            <span class="date">5, Mar</span>
-          </div>
-          <div class="team team--right">
-            <span class="name">germany</span>
-            <span class="flag"><img src="assets/images/flag/germany.jpg" alt="image"></span>
-          </div>
-        </div>
-      </div><!-- result-item end -->
-      <div class="col-lg-6">
-        <div class="result-item d-flex text-center align-items-center justify-content-center">
-          <div class="team team--left">
-            <span class="name">argentina</span>
-            <span class="flag"><img src="assets/images/flag/argentina.jpg" alt="image"></span>
-          </div>
-          <div class="result-details">
-            <p>
-              <span class="left-team-result">1</span>
-              <span class="right-team-result">3</span>
-            </p>
-            <span class="date">5, Mar</span>
-          </div>
-          <div class="team team--right">
-            <span class="name">USA</span>
-            <span class="flag"><img src="assets/images/flag/usa.jpg" alt="image"></span>
-          </div>
-        </div>
-      </div><!-- result-item end -->
-      <div class="col-lg-6">
-        <div class="result-item d-flex text-center align-items-center justify-content-center">
-          <div class="team team--left">
-            <span class="name">argentina</span>
-            <span class="flag"><img src="assets/images/flag/argentina.jpg" alt="image"></span>
-          </div>
-          <div class="result-details">
-            <p>
-              <span class="left-team-result">1</span>
-              <span class="right-team-result">3</span>
-            </p>
-            <span class="date">5, Mar</span>
-          </div>
-          <div class="team team--right">
-            <span class="name">USA</span>
-            <span class="flag"><img src="assets/images/flag/usa.jpg" alt="image"></span>
-          </div>
-        </div>
-      </div><!-- result-item end -->
-      <div class="col-lg-6">
-        <div class="result-item d-flex text-center align-items-center justify-content-center">
-          <div class="team team--left">
-            <span class="name">england</span>
-            <span class="flag"><img src="assets/images/flag/england.jpg" alt="image"></span>
-          </div>
-          <div class="result-details">
-            <p>
-              <span class="left-team-result">1</span>
-              <span class="right-team-result">3</span>
-            </p>
-            <span class="date">5, Mar</span>
-          </div>
-          <div class="team team--right">
-            <span class="name">germany</span>
-            <span class="flag"><img src="assets/images/flag/germany.jpg" alt="image"></span>
-          </div>
-        </div>
-      </div><!-- result-item end -->
-      <div class="col-lg-6">
-        <div class="result-item d-flex text-center align-items-center justify-content-center">
-          <div class="team team--left">
-            <span class="name">swizarland</span>
-            <span class="flag"><img src="assets/images/flag/swizerland.jpg" alt="image"></span>
-          </div>
-          <div class="result-details">
-            <p>
-              <span class="left-team-result">1</span>
-              <span class="right-team-result">3</span>
-            </p>
-            <span class="date">5, Mar</span>
-          </div>
-          <div class="team team--right">
-            <span class="name">koria</span>
-            <span class="flag"><img src="assets/images/flag/koria.jpg" alt="image"></span>
-          </div>
-        </div>
-      </div><!-- result-item end -->
-      <div class="col-lg-6">
-        <div class="result-item d-flex text-center align-items-center justify-content-center">
-          <div class="team team--left">
-            <span class="name">Uruguay</span>
-            <span class="flag"><img src="assets/images/flag/uruguay.jpg" alt="image"></span>
-          </div>
-          <div class="result-details">
-            <p>
-              <span class="left-team-result">1</span>
-              <span class="right-team-result">3</span>
-            </p>
-            <span class="date">5, Mar</span>
-          </div>
-          <div class="team team--right">
-            <span class="name">brazil</span>
-            <span class="flag"><img src="assets/images/flag/brazil.jpg" alt="image"></span>
-          </div>
-        </div>
-      </div><!-- result-item end -->
-    </div>
-  </div>
-</section>
-<!-- result-section end -->
+        <div class="statistics-table-result-part">
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="football" role="tabpanel" aria-labelledby="football-tab">
+              <div class="accordion" id="accordionExample-1">
+                <div class="card">
+                  <!--- Champions League --->
+                  <div class="card-header" id="champ-league">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                              aria-expanded="true" aria-controls="collapseOne">Champions League
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseOne" class="collapse show" aria-labelledby="world-cup"
+                       data-parent="#accordionExample-1">
+                    <div class="card-body">
+                      <div class="statistics-result-table d-flex">
+                        <div class="statistics-result-area">
+                          <div *ngIf="!isDataCLAvailable" class="spinner-grow" role="status">
+                            <span class="sr-only"></span>
+                          </div>
+                          <div *ngIf="isDataCLAvailable">
+                          <div *ngIf="!champLeague?.length > 0">
+                            No results available for this date
+                          </div>
+                          </div>
+                          <div *ngFor="let match of champLeague" class="result-single d-flex align-items-center">
+                            <div class="details">
+                              <p>{{match.date}}</p>
+                              <p>{{match.location}}</p>
+                            </div>
+                            <div class="team-area">
+                              <div class="first-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.home_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:0:1}}</span>
+                              </div>
+                              <div class="second-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.away_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:4:5}}</span>
+                              </div>
+                            </div>
+                          </div><!-- result-single end -->
+                        </div><!-- statistics-result-area end -->
+                      </div><!-- statistics-result-table end -->
+                    </div>
+                  </div>
+<br>
+                  <!--- /Champions League --->
 
-<!-- league-result-section start -->
-<section class="league-result-section section-padding section-bg">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-6">
-        <div class="section-header text-center">
-          <h2 class="section-title">World League Tables</h2>
-          <p>On insensible possession oh particular attachment at excellence in. The books arose but miles happy she.</p>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="league-result-area">
-          <div class="league-result-area-inner">
-            <div class="league-result-item d-flex align-items-center justify-content-between">
-              <div class="date-block">
-                <span class="date">05, Mar</span>
-              </div>
-              <div class="team-block d-flex justify-content-center align-items-center">
-                <div class="team team--left">
-                  <span class="name">Uruguay</span>
-                  <span class="flag"><img src="assets/images/flag/uruguay.jpg" alt="image"></span>
+                  <!--- /Europa League --->
+
+                  <div class="card-header" id="europa">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                              data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Europa League
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="world-cup"
+                       data-parent="#accordionExample-1">
+                    <div class="card-body">
+                      <div class="statistics-result-table d-flex">
+                        <div class="statistics-result-area">
+                          <div *ngIf="!isDataCLAvailable" class="spinner-grow" role="status">
+                            <span class="sr-only"></span>
+                          </div>
+                          <div *ngIf="isDataCLAvailable">
+                          <div *ngIf="!europaLeague?.length > 0">
+                            No results available for this date
+                          </div>
+                          </div>
+                          <div *ngFor="let match of europaLeague" class="result-single d-flex align-items-center">
+                            <div class="details">
+                              <p>{{match.date}}</p>
+                              <p>{{match.location}}</p>
+                            </div>
+                            <div class="team-area">
+                              <div class="first-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.home_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:0:1}}</span>
+                              </div>
+                              <div class="second-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.away_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:4:5}}</span>
+                              </div>
+                            </div>
+                          </div><!-- result-single end -->
+                        </div><!-- statistics-result-area end -->
+                      </div><!-- statistics-result-table end -->
+                    </div>
+                  </div>
+                  <br>
+                  <!--- /Europa League --->
+
+                  <!--- Premier League --->
+
+                  <div class="card-header" id="premierLeague">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                              data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Premier League
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="world-cup"
+                       data-parent="#accordionExample-1">
+                    <div class="card-body">
+                      <div class="statistics-result-table d-flex">
+                        <div class="statistics-result-area">
+                          <div *ngIf="!isDataPLAvailable" class="spinner-grow" role="status">
+                            <span class="sr-only"></span>
+                          </div>
+                          <div *ngIf="isDataPLAvailable">
+                            <div *ngIf="!premierLeague?.length > 0">
+                              No results available for this date
+                            </div>
+                          </div>
+                          <div *ngFor="let match of premierLeague" class="result-single d-flex align-items-center">
+                            <div class="details">
+                              <p>{{match.date}}</p>
+                              <p>{{match.location}}</p>
+                            </div>
+                            <div class="team-area">
+                              <div class="first-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.home_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:0:1}}</span>
+                              </div>
+                              <div class="second-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.away_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:4:5}}</span>
+                              </div>
+                            </div>
+                          </div><!-- result-single end -->
+                        </div><!-- statistics-result-area end -->
+                      </div><!-- statistics-result-table end -->
+                    </div>
+                  </div>
+                  <br>
+
+                  <!--- /Premier League --->
+
+
+                  <!--- La Liga League --->
+
+                  <div class="card-header" id="LaLigua">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                              data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">LaLiga Santander
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseFour" class="collapse" aria-labelledby="world-cup"
+                       data-parent="#accordionExample-1">
+                    <div class="card-body">
+                      <div class="statistics-result-table d-flex">
+                        <div class="statistics-result-area">
+                          <div *ngIf="!isDataLLAvailable" class="spinner-grow" role="status">
+                            <span class="sr-only"></span>
+                          </div>
+                          <div *ngIf="isDataLLAvailable">
+                            <div *ngIf="!laLiga?.length > 0">
+                              No results available for this date
+                            </div>
+                          </div>
+                          <div *ngFor="let match of laLiga" class="result-single d-flex align-items-center">
+                            <div class="details">
+                              <p>{{match.date}}</p>
+                              <p>{{match.location}}</p>
+                            </div>
+                            <div class="team-area">
+                              <div class="first-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.home_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:0:1}}</span>
+                              </div>
+                              <div class="second-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.away_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:4:5}}</span>
+                              </div>
+                            </div>
+                          </div><!-- result-single end -->
+                        </div><!-- statistics-result-area end -->
+                      </div><!-- statistics-result-table end -->
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <!--- /La Liga League --->
+
+
+                  <!--- Serie A League --->
+
+                  <div class="card-header" id="SerieA">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                              data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">Serie A
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseSix" class="collapse" aria-labelledby="world-cup"
+                       data-parent="#accordionExample-1">
+                    <div class="card-body">
+                      <div class="statistics-result-table d-flex">
+                        <div class="statistics-result-area">
+                          <div *ngIf="!isDataSAAvailable" class="spinner-grow" role="status">
+                            <span class="sr-only"></span>
+                          </div>
+                          <div *ngIf="isDataSAAvailable">
+                            <div *ngIf="!serieA?.length > 0">
+                              No results available for this date
+                            </div>
+                          </div>
+                          <div *ngFor="let match of serieA" class="result-single d-flex align-items-center">
+                            <div class="details">
+                              <p>{{match.date}}</p>
+                              <p>{{match.location}}</p>
+                            </div>
+                            <div class="team-area">
+                              <div class="first-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.home_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:0:1}}</span>
+                              </div>
+                              <div class="second-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.away_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:4:5}}</span>
+                              </div>
+                            </div>
+                          </div><!-- result-single end -->
+                        </div><!-- statistics-result-area end -->
+                      </div><!-- statistics-result-table end -->
+                    </div>
+                  </div>
+                  <br>
+
+                  <!--- /Serie A League --->
+
+
+                  <!--- Bundesliga  League --->
+
+                  <div class="card-header" id="Bundesliga">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                              data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">Bundesliga
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseEight" class="collapse" aria-labelledby="world-cup"
+                       data-parent="#accordionExample-1">
+                    <div class="card-body">
+                      <div class="statistics-result-table d-flex">
+                        <div class="statistics-result-area">
+                          <div *ngIf="!isDataBLAvailable" class="spinner-grow" role="status">
+                            <span class="sr-only"></span>
+                          </div>
+                          <div *ngIf="isDataBLAvailable">
+                            <div *ngIf="!bundesliga?.length > 0">
+                              No results available for this date
+                            </div>
+                          </div>
+                          <div *ngFor="let match of bundesliga" class="result-single d-flex align-items-center">
+                            <div class="details">
+                              <p>{{match.date}}</p>
+                              <p>{{match.location}}</p>
+                            </div>
+                            <div class="team-area">
+                              <div class="first-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.home_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:0:1}}</span>
+                              </div>
+                              <div class="second-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.away_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:4:5}}</span>
+                              </div>
+                            </div>
+                          </div><!-- result-single end -->
+                        </div><!-- statistics-result-area end -->
+                      </div><!-- statistics-result-table end -->
+                    </div>
+                  </div>
+                  <br>
+
+                  <!--- /Bundesliga League --->
+
+                  <!--- Tunsian Professional League  --->
+
+                  <div class="card-header" id="TunisanLeague">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                              data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">Tunsian Professional League
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseSeven" class="collapse" aria-labelledby="world-cup"
+                       data-parent="#accordionExample-1">
+                    <div class="card-body">
+                      <div class="statistics-result-table d-flex">
+                        <div class="statistics-result-area">
+                          <div *ngIf="!isDataTLAvailable" class="spinner-grow" role="status">
+                            <span class="sr-only"></span>
+                          </div>
+                          <div *ngIf="isDataTLAvailable">
+                            <div *ngIf="!tunisianProfessionalLeague?.length > 0">
+                              No results available for this date
+                            </div>
+                          </div>
+                          <div *ngFor="let match of tunisianProfessionalLeague" class="result-single d-flex align-items-center">
+                            <div class="details">
+                              <p>{{match.date}}</p>
+                              <p>{{match.location}}</p>
+                            </div>
+                            <div class="team-area">
+                              <div class="first-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.home_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:0:1}}</span>
+                              </div>
+                              <div class="second-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.away_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:4:5}}</span>
+                              </div>
+                            </div>
+                          </div><!-- result-single end -->
+                        </div><!-- statistics-result-area end -->
+                      </div><!-- statistics-result-table end -->
+                    </div>
+                  </div>
+                  <br>
+
+                  <!--- /Tunsian Professional League  --->
+
+                  <!--- Ligue 1 League --->
+
+                  <div class="card-header" id="Ligue1">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                              data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Ligue 1
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseFive" class="collapse" aria-labelledby="world-cup"
+                       data-parent="#accordionExample-1">
+                    <div class="card-body">
+                      <div class="statistics-result-table d-flex">
+                        <div class="statistics-result-area">
+                          <div *ngIf="!isDataL1Available" class="spinner-grow" role="status">
+                            <span class="sr-only"></span>
+                          </div>
+                          <div *ngIf="isDataL1Available">
+                            <div *ngIf="!ligue1?.length > 0">
+                              No results available for this date
+                            </div>
+                          </div>
+                          <div *ngFor="let match of ligue1" class="result-single d-flex align-items-center">
+                            <div class="details">
+                              <p>{{match.date}}</p>
+                              <p>{{match.location}}</p>
+                            </div>
+                            <div class="team-area">
+                              <div class="first-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.home_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:0:1}}</span>
+                              </div>
+                              <div class="second-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.away_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:4:5}}</span>
+                              </div>
+                            </div>
+                          </div><!-- result-single end -->
+                        </div><!-- statistics-result-area end -->
+                      </div><!-- statistics-result-table end -->
+                    </div>
+                  </div>
+                  <br>
+
+                  <!--- /Ligue 1 League --->
+
                 </div>
-                <span class="vs-text">VS</span>
-                <div class="team team--right">
-                  <span class="name">brazil</span>
-                  <span class="flag"><img src="assets/images/flag/brazil.jpg" alt="image"></span>
-                </div>
-              </div>
-              <div class="result-block justify-content-center">
-                <p>
-                  <span class="left-team-result">1</span>
-                  <span class="right-team-result">3</span>
-                </p>
-              </div>
-              <div class="button-block justify-content-end">
-                <a href="#0" class="cmn-btn btn-lg">summary</a>
-              </div>
-            </div><!-- league-result-item end -->
-            <div class="league-result-item d-flex align-items-center justify-content-between">
-              <div class="date-block">
-                <span class="date">05, Mar</span>
-              </div>
-              <div class="team-block d-flex justify-content-center align-items-center">
-                <div class="team team--left">
-                  <span class="name">Argentina</span>
-                  <span class="flag"><img src="assets/images/flag/argentina.jpg" alt="image"></span>
-                </div>
-                <span class="vs-text">VS</span>
-                <div class="team team--right">
-                  <span class="name">swizarland</span>
-                  <span class="flag"><img src="assets/images/flag/swizerland.jpg" alt="image"></span>
-                </div>
-              </div>
-              <div class="result-block justify-content-center">
-                <p>
-                  <span class="left-team-result">1</span>
-                  <span class="right-team-result">3</span>
-                </p>
-              </div>
-              <div class="button-block justify-content-end">
-                <a href="#0" class="cmn-btn btn-lg">summary</a>
-              </div>
-            </div><!-- league-result-item end -->
-            <div class="league-result-item d-flex align-items-center justify-content-between">
-              <div class="date-block">
-                <span class="date">05, Mar</span>
-              </div>
-              <div class="team-block d-flex justify-content-center align-items-center">
-                <div class="team team--left">
-                  <span class="name">england</span>
-                  <span class="flag"><img src="assets/images/flag/england.jpg" alt="image"></span>
-                </div>
-                <span class="vs-text">VS</span>
-                <div class="team team--right">
-                  <span class="name">germany</span>
-                  <span class="flag"><img src="assets/images/flag/germany.jpg" alt="image"></span>
-                </div>
-              </div>
-              <div class="result-block justify-content-center">
-                <p>
-                  <span class="left-team-result">1</span>
-                  <span class="right-team-result">3</span>
-                </p>
-              </div>
-              <div class="button-block justify-content-end">
-                <a href="#0" class="cmn-btn btn-lg">summary</a>
-              </div>
-            </div><!-- league-result-item end -->
-            <div class="league-result-item d-flex align-items-center justify-content-between">
-              <div class="date-block">
-                <span class="date">05, Mar</span>
-              </div>
-              <div class="team-block d-flex justify-content-center align-items-center">
-                <div class="team team--left">
-                  <span class="name">USA</span>
-                  <span class="flag"><img src="assets/images/flag/usa.jpg" alt="image"></span>
-                </div>
-                <span class="vs-text">VS</span>
-                <div class="team team--right">
-                  <span class="name">argentina</span>
-                  <span class="flag"><img src="assets/images/flag/argentina.jpg" alt="image"></span>
-                </div>
-              </div>
-              <div class="result-block justify-content-center">
-                <p>
-                  <span class="left-team-result">1</span>
-                  <span class="right-team-result">3</span>
-                </p>
-              </div>
-              <div class="button-block justify-content-end">
-                <a href="#0" class="cmn-btn btn-lg">summary</a>
-              </div>
-            </div><!-- league-result-item end -->
-            <div class="league-result-item d-flex align-items-center justify-content-between">
-              <div class="date-block">
-                <span class="date">05, Mar</span>
-              </div>
-              <div class="team-block d-flex justify-content-center align-items-center">
-                <div class="team team--left">
-                  <span class="name">swizarland</span>
-                  <span class="flag"><img src="assets/images/flag/swizerland.jpg" alt="image"></span>
-                </div>
-                <span class="vs-text">VS</span>
-                <div class="team team--right">
-                  <span class="name">koria</span>
-                  <span class="flag"><img src="assets/images/flag/koria.jpg" alt="image"></span>
-                </div>
-              </div>
-              <div class="result-block justify-content-center">
-                <p>
-                  <span class="left-team-result">1</span>
-                  <span class="right-team-result">3</span>
-                </p>
-              </div>
-              <div class="button-block justify-content-end">
-                <a href="#0" class="cmn-btn btn-lg">summary</a>
-              </div>
-            </div><!-- league-result-item end -->
+            </div>
           </div>
-        </div>
+        </div><!-- online-play-tab-part end -->
       </div>
     </div>
   </div>
+  </div>
 </section>
-<!-- league-result-section end -->
+<!-- statistics-section end -->
 
 <!-- footer-section start -->
 <app-footer></app-footer>
 <!-- footer-section end -->
 
-<!-- scroll-to-top start -->
 <app-scroll-to-top></app-scroll-to-top>
-<!-- scroll-to-top end -->

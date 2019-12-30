@@ -1,0 +1,99 @@
+
+<!-- preloader end -->
+<div *ngIf="!isDataAvailable">
+  <app-preloader></app-preloader>
+</div>
+<app-custom-cursor></app-custom-cursor>
+
+<!--  header-section start  -->
+<app-header></app-header>
+<!-- standings-section start -->
+<section class="play-section section-padding section-bg">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="section-header text-center">
+          <h2 class="section-title">Standings : {{competitionName}}</h2>
+          <span class="flag"><img src="assets/images/flag/{{countryName}}.jpg" alt="image"></span>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="online-play-tab-part">
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+              <div class="play-table-part">
+                <div class="play-table">
+                  <table>
+                    <thead>
+                    <tr >
+                      <th class="team-name">Rank</th>
+                      <th class="goal">Team</th>
+                      <th class="goal">Points</th>
+                      <th class="goal">Matches</th>
+                      <th class="goal">Lost</th>
+                      <th class="goal">Won</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let team of standings">
+                      <td>
+                        <div class="score">
+                          <span class="first-team-score">{{team.rank}}</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="team-name-part">
+                          <i class="fa fa-futbol-o"></i>
+                          <div class="content">
+                            <span class="name">{{team.name}}</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="score">
+                          <span class="first-team-score">{{team.points}}</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="score">
+                          <span class="first-team-score">{{team.matches}}</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="score">
+                          <span class="first-team-score">{{team.lost}}</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="score">
+                          <span class="first-team-score">{{team.won}}</span>
+                        </div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- online-play-tab-part end -->
+      </div>
+</section>
+<!-- standings-section end -->
+
+<!-- footer-section start -->
+<app-footer></app-footer>
+<!-- footer-section end -->
+
+
+<!-- scroll-to-top start -->
+<app-scroll-to-top></app-scroll-to-top>
+<!-- scroll-to-top end -->
+
+
+

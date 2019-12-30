@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { TokenInterceptor } from './_interceptors/token-interceptor';
+import { HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -29,6 +30,18 @@ import { InPlayComponent } from './in-play/in-play.component';
 import { HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import { BetSheetDetailsComponent } from './bet-sheet-details/bet-sheet-details.component';
+import {ImagePreloadDirective} from './_directives/image-preload.directive';
+import {StandingsComponent} from './standings/standings.component';
+import {
+  MatDatepickerModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatNativeDateModule,
+  MatPaginatorModule, MatSortModule,
+  MatTableModule
+} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -58,14 +71,31 @@ import { BetSheetDetailsComponent } from './bet-sheet-details/bet-sheet-details.
     ResultsComponent,
     AboutUsComponent,
     InPlayComponent,
-    BetSheetDetailsComponent
+    BetSheetDetailsComponent,
+    InPlayComponent,
+    StandingsComponent,
+    ImagePreloadDirective
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

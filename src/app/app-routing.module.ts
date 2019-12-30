@@ -5,11 +5,15 @@ import {InPlayComponent} from './in-play/in-play.component';
 import {LoginComponent} from './login/login.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {ErrorNotFoundComponent} from './error-not-found/error-not-found.component';
+import {StandingsComponent} from './standings/standings.component';
+import {ResultsComponent} from './results/results.component';
+import {AuthGuard} from './_helpers/auth.guard';
 import {BetSheetDetailsComponent} from './bet-sheet-details/bet-sheet-details.component';
 import {AboutUsComponent} from './about-us/about-us.component';
 import {ContactUsComponent} from './contact-us/contact-us.component';
 import {PromotionsComponent} from './promotions/promotions.component';
-import {ResultsComponent} from './results/results.component';
+import {OurServicesComponent} from './layout/our-services/our-services.component';
+import {StatisticsComponent} from './statistics/statistics.component';
 
 
 const routes: Routes = [
@@ -17,6 +21,14 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'statistics',
+    component: StatisticsComponent,
   },
   /*
   {
@@ -85,6 +97,10 @@ const routes: Routes = [
     component: AboutUsComponent
   },
   {
+    path: 'my-bet-sheets',
+    component: BetSheetDetailsComponent
+  },
+  {
     path: 'contact-us',
     component: ContactUsComponent
   },
@@ -93,16 +109,40 @@ const routes: Routes = [
     component: PromotionsComponent
   },
   {
+    path: 'register',
+    component: RegistrationComponent
+  },
+  {
     path: 'results',
     component: ResultsComponent
   },
   {
-    path: 'login',
-    component: LoginComponent
+    path: 'PremierLeague/:competitionId',
+    component: StandingsComponent
   },
   {
-    path: 'register',
-    component: RegistrationComponent
+    path: 'Bundesliga/:competitionId',
+    component: StandingsComponent
+  },
+  {
+    path: 'LaLiga-Santander/:competitionId',
+    component: StandingsComponent
+  },
+  {
+    path: 'SerieA/:competitionId',
+    component: StandingsComponent
+  },
+  {
+    path: 'Tunisian-Professional-League/:competitionId',
+    component: StandingsComponent
+  },
+  {
+    path: 'Ligue1/:competitionId',
+    component: StandingsComponent
+  },
+  {
+    path: 'our-services',
+    component: OurServicesComponent
   },
   {
     path: '**',
