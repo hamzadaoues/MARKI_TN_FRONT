@@ -1,58 +1,47 @@
+
 <!-- blog-section start -->
-<section class="blog-section section-padding section-bg">
+<section class="blog-section section-padding section-bg" >
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-7">
         <div class="section-header text-center">
           <h2 class="section-title">Live Events</h2>
-          <p>On insensible possession oh particular attachment at excellence in. The books arose but miles happy she.</p>
         </div>
       </div>
     </div>
-    <div class="row mt-mb-15">
-      <div class="col-lg-4 col-sm-6">
+
+    <div style="position: relative!important;text-align: center!important;" *ngIf="!isLiveEventsAvailable" >
+
+      <div  class="spinner-grow col-lg-4" role="status" >
+        <span class="sr-only"></span>
+      </div>
+
+    </div>
+
+    <div class="row mt-mb-15" *ngIf="isLiveEventsAvailable">
+      <div class="col-lg-4 col-sm-6"
+      *ngFor="let event of threeEventsToDisplay">
         <div class="post-item">
           <div class="thumb">
-            <img src="../assets/images/live-events/goal.jpg" alt="image">
+            <img src="../assets/images/live-events/{{event.event | lowercase}}.jpg" alt="image">
           </div>
           <div class="content">
             <ul class="post-meta">
               <li><a href="#"><i class="fa fa-calendar"></i>04, March, 2019</a></li>
             </ul>
-            <h5 class="post-title"><a href="#0">Turn Your Bet Into A High Performing Machine</a></h5>
-            <p>No depending be convinced in unfeeling he. Excellence she unaffected and too sentiments her.</p>
-          </div>
-        </div>
-      </div><!-- post-item end -->
-      <div class="col-lg-4 col-sm-6">
-        <div class="post-item">
-          <div class="thumb">
-            <img src="../assets/images/live-events/own-goal.jpg" alt="image">
-          </div>
-          <div class="content">
-            <ul class="post-meta">
-              <li><a href="#"><i class="fa fa-calendar"></i>04, March, 2019</a></li>
-            </ul>
-            <h5 class="post-title"><a href="#0">BET Is Crucial To Your Business. Learn Why!</a></h5>
-            <p>No depending be convinced in unfeeling he. Excellence she unaffected and too sentiments her.</p>
-          </div>
-        </div>
-      </div><!-- post-item end -->
-      <div class="col-lg-4 col-sm-6">
-        <div class="post-item">
-          <div class="thumb">
-            <img src="../assets/images/live-events/red-card.jpg" alt="image">
-          </div>
-          <div class="content">
-            <ul class="post-meta">
-              <li><a href="#"><i class="fa fa-calendar"></i>04, March, 2019</a></li>
-            </ul>
-            <h5 class="post-title"><a href="#0">Why Most People Will Never Be Great At BET</a></h5>
-            <p>No depending be convinced in unfeeling he. Excellence she unaffected and too sentiments her.</p>
+            <h5 class="post-title" style="text-align:center!important;"><a href="#0">{{event.event |titlecase }}</a></h5>
+            <p *ngIf="event.event === 'GOAL'"> <span class="player-name"><a href="#">{{event.player | titlecase }}</a></span> scores a goal at {{event.time}}' </p>
+            <p *ngIf="event.event === 'GOAL_PENALTY'"><span class="player-name">{{event.player | titlecase }}</span>  scores a penalty goal at {{event.time}}' </p>
+            <p *ngIf="event.event === 'YELLOW_CARD'">Yellow card for <span class="player-name">{{event.player | titlecase }}</span>  at {{event.time}}' </p>
+            <p *ngIf="event.event === 'RED_CARD'">Red card for <span class="player-name">{{event.player | titlecase }}</span> at {{event.time}}' </p>
+            <p *ngIf="event.event === 'YELLOW_RED_CARD'">Second yellow card for {{event.player | titlecase }} at {{event.time}}' </p>
+            <p *ngIf="event.event === 'OWN_GOAL'"><span class="player-name">{{event.player | titlecase }}</span>  scores an own goal at {{event.time}}' </p>
           </div>
         </div>
       </div><!-- post-item end -->
     </div>
+    <p style="text-align: center" *ngIf="noLiveMatchAvailable"> No live match availabe </p>
+
   </div>
 </section>
 <!-- blog-section end -->

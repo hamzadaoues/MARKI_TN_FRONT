@@ -14,6 +14,8 @@ import {ContactUsComponent} from './contact-us/contact-us.component';
 import {PromotionsComponent} from './promotions/promotions.component';
 import {OurServicesComponent} from './layout/our-services/our-services.component';
 import {StatisticsComponent} from './statistics/statistics.component';
+import {LiveNewsComponent} from './layout/live-news/live-news.component';
+import {LiveNewsDetailsComponent} from './live-news-details/live-news-details.component';
 
 
 const routes: Routes = [
@@ -143,6 +145,10 @@ const routes: Routes = [
   {
     path: 'our-services',
     component: OurServicesComponent
+  },
+  {
+    path: 'live-events',
+    component: LiveNewsDetailsComponent
   },
   {
     path: '**',
