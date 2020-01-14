@@ -1,7 +1,6 @@
 <app-preloader></app-preloader>
 <app-custom-cursor> </app-custom-cursor>
 <app-header [pageName]="'Home'" *ngIf="loaded"></app-header>
-
 <app-banner *ngIf="loaded"></app-banner>
 <app-features-box *ngIf="loaded"> </app-features-box>
 <app-games (loaded)="loaded=$event"></app-games>

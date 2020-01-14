@@ -7,6 +7,8 @@ import {RegistrationComponent} from './registration/registration.component';
 import {ErrorNotFoundComponent} from './error-not-found/error-not-found.component';
 import {StandingsComponent} from './standings/standings.component';
 import {ResultsComponent} from './results/results.component';
+import {FixturesComponent} from './fixtures/fixtures.component';
+import {BetSheetComponent} from './bet-sheet/bet-sheet.component';
 
 
 const routes: Routes = [
@@ -96,6 +98,14 @@ const routes: Routes = [
   {
     path: 'europaLeague/:leagueId',
     component: StandingsComponent
+  },
+  {
+    path: 'fixtures',
+    component: FixturesComponent
+  },
+  {
+    path: 'betsheet',
+    component: BetSheetComponent
   },
   {
     path: '**',
