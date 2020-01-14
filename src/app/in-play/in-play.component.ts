@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+declare var $: any
 @Component({
   selector: 'app-in-play',
   templateUrl: './in-play.component.html',
@@ -7,10 +7,14 @@ import {Component, OnInit} from '@angular/core';
 })
 export class InPlayComponent implements OnInit {
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit() {
+    // Animate the scroll to top
+    $('.scroll-to-top').on('click', function(event) {
+      event.preventDefault();
+      $('html, body').animate({scrollTop: 0}, 800);
+    });
   }
 
 }

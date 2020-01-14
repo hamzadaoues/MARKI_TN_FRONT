@@ -7,10 +7,9 @@ import {API_KEY, API_SECRET, STANDINGS_URL} from '../_globals/vars';
 })
 export class GetStandingsService {
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) { }
 
-  getStandings(leagueId: number, season: number) {
-    return this.http.get<any>(STANDINGS_URL + '?key=' + API_KEY + '&secret=' + API_SECRET + '&league=' + leagueId + '&season=' + season);
+  getStandings(competitionId: number) {
+    return this.http.get<any>( STANDINGS_URL + '?key=' + API_KEY + '&secret=' + API_SECRET + '&competition_id=' + competitionId);
   }
 }
