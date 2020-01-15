@@ -14,17 +14,13 @@ export class AuthService {
   login(data: any): Observable<any> {
     return this.http.post<any>(apiUrl + 'signin', data)
       .pipe(
-        tap(_ => this.isLoggedIn = true),
-        catchError(this.handleError('login', []))
-      );
+        tap(_ => this.isLoggedIn = true));
   }
 
   register(data: any): Observable<any> {
     return this.http.post<any>(apiUrl + 'signup', data)
       .pipe(
-        tap(_ => this.log('login')),
-        catchError(this.handleError('register', []))
-      );
+        tap(_ => this.log('login')));
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

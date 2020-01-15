@@ -43,11 +43,16 @@ export class PaymentComponent implements OnInit {
         if (status === 200) {
           const token = response.id;
           this.chargeCard(token);
+          this.deleteBetSheetFromSessionStorageAfterPayment();
         } else {
+          this.deleteBetSheetFromSessionStorageAfterPayment();
           console.log(response);
         }
       });
     }
+  }
+  deleteBetSheetFromSessionStorageAfterPayment() {
+    sessionStorage.clear();
   }
 
 

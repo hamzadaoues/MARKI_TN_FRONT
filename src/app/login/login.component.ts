@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   isLoading = false;
   error = false;
+  errorMessage: string;
+  submitted: boolean;
   constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -26,14 +28,16 @@ export class LoginComponent implements OnInit {
 
   onFormSubmit(form: NgForm) {
     this.isLoading = true;
+    this.submitted = true;
     this.authService.login(form)
       .subscribe(res => {
+        this.submitted = true;
         console.log(res);
         if (res.token) {
           localStorage.setItem('token', res.token);
         }
-      }, (err) => {
-        console.log('error');
+      }, (error) => {
+        this.errorMessage = error.error.message;
         this.error = true;
       }, () => {
         this.isLoading = false;

@@ -1,3 +1,8 @@
+
+<app-custom-cursor></app-custom-cursor>
+<!--  header-section start  -->
+<app-header [pageName]="'Login'"></app-header>
+
 <section class="login-section section-padding">
   <div class="container">
     <div class="row justify-content-center">
@@ -8,24 +13,30 @@
             <form class="cmn-form login-form" [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
               <div class="frm-group">
 
-                <input matInput type="text" name="f-name" id="f-name" formControlName="usernameOrEmail"
-                       [errorStateMatcher]="matcher" placeholder="UsernameOrEmail">
-                  <mat-error>
-                    <span *ngIf="!loginForm.get('usernameOrEmail').valid && loginForm.get('usernameOrEmail').touched">Please enter your email</span>
-                  </mat-error>
+                <input class="col-lg-11" matInput type="text" name="usernameOrEmail" id="usernameOrEmail" formControlName="usernameOrEmail"
+                       [errorStateMatcher]="matcher" placeholder="UsernameOrEmail"
+                       [ngClass]="{'border border-danger': submitted && error}">&nbsp;&nbsp;<i *ngIf="error && submitted"  class="fa fa-exclamation-circle alert-danger "></i>
+                <br *ngIf="!loginForm.get('usernameOrEmail').valid && loginForm.get('usernameOrEmail').touched">
+                <br *ngIf="!loginForm.get('usernameOrEmail').valid && loginForm.get('usernameOrEmail').touched">
+                    <span class="alert alert-danger frm-group" role="alert" *ngIf="!loginForm.get('usernameOrEmail').valid && loginForm.get('usernameOrEmail').touched">Please enter your email</span>
 
               </div>
               <div class="frm-group">
-                <input matInput type="password" name="pass" id="pass" formControlName="password" placeholder="Your Password"[errorStateMatcher]="matcher">
-                <mat-error>
-                  <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter your password</span>
-                </mat-error>
+                <input  class="col-lg-11" matInput type="password" name="pass" id="pass" formControlName="password"
+                       placeholder="Your Password"[errorStateMatcher]="matcher"
+                       [ngClass]="{'border border-danger': submitted && error}">&nbsp;&nbsp;<i *ngIf="error && submitted"  class="fa fa-exclamation-circle alert-danger"></i>
+                <br *ngIf="!loginForm.get('usernameOrEmail').valid && loginForm.get('usernameOrEmail').touched">
+                <br *ngIf="!loginForm.get('usernameOrEmail').valid && loginForm.get('usernameOrEmail').touched">
+
+                  <span class="alert alert-danger  frm-group" role="alert" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter your password</span>
               </div>
-              <div *ngIf="isLoading" class="spinner-grow" role="status">
-                <span class="sr-only"></span>
-              </div>
-              <div *ngIf="error" class="alert alert-danger" role="alert">
-                Login Failed
+              <div class="row">
+                <div class="col-lg-4">
+
+                </div>
+                <div  *ngIf="error" class="alert alert-danger col-lg-4 frm-group" role="alert">
+                  {{errorMessage}}
+                </div>
               </div>
               <div class="frm-group">
                 <button type="submit" [disabled]="!loginForm.valid" class="submit-btn">Sign In</button>
@@ -38,3 +49,5 @@
     </div>
   </div>
 </section>
+
+<app-footer></app-footer>

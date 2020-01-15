@@ -42,17 +42,13 @@ import {
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-<<<<<<< HEAD
-import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
-=======
 import {BetSheetComponent} from './bet-sheet/bet-sheet.component';
 import {FixturesComponent} from './fixtures/fixtures.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {PaymentComponent} from './payment/payment.component';
 
->>>>>>> c9f6d4571cf6100b31a0af3d75cfcebb7c6942cf
 
 @NgModule({
   declarations: [
@@ -84,15 +80,12 @@ import {PaymentComponent} from './payment/payment.component';
     BetSheetDetailsComponent,
     InPlayComponent,
     StandingsComponent,
-<<<<<<< HEAD
     ImagePreloadDirective,
     ResetPasswordComponent,
-    NewPasswordComponent
-=======
+    NewPasswordComponent,
     FixturesComponent,
     BetSheetComponent,
     PaymentComponent
->>>>>>> c9f6d4571cf6100b31a0af3d75cfcebb7c6942cf
   ],
   imports: [
     FontAwesomeModule,
