@@ -44,6 +44,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BetSheetComponent} from './bet-sheet/bet-sheet.component';
 import {FixturesComponent} from './fixtures/fixtures.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {PaymentComponent} from './payment/payment.component';
 
 
 @NgModule({
@@ -78,9 +80,10 @@ import {FixturesComponent} from './fixtures/fixtures.component';
     StandingsComponent,
     FixturesComponent,
     BetSheetComponent,
-    //ImagePreloadDirective
+    PaymentComponent
   ],
   imports: [
+    FontAwesomeModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

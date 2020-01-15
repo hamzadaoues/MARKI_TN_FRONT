@@ -12,8 +12,7 @@
           <ul class="navbar-nav main-menu ml-auto">
             <li [ngClass]="{'active' : pageName === 'Home'  }"><a routerLink="">Home</a></li>
             <li [ngClass]="{'active' : pageName === 'In-play'  }"><a routerLink="/in-play">In-play</a></li>
-            <li [ngClass]="{'active' : pageName === 'Live Events'  }"><a routerLink="/live-events">Live events</a></li>
-            <li [ngClass]="{'active' : pageName === 'Statistics'  }"><a routerLink="/statistics">Statistics</a></li>
+            <li [ngClass]="{'active' : pageName === 'Fixtures'  }"><a routerLink="/fixtures">Fixtures</a></li>
             <li [ngClass]="{'active' : pageName === 'Result'  }"><a routerLink="/results">Results</a></li>
             <li class="menu_has_children"><a href="#">Standings</a>
               <ul class="sub-menu">
@@ -40,7 +39,9 @@
                 <li><a href="blog-details.html">blog single</a></li>
               </ul>
             </li>
-            <li [ngClass]="{'active' : pageName === 'Contact-us'  }"><a routerLink="/contact-us">contact us</a></li>
+            <li [ngClass]="{'active' : pageName === 'Contact-us'  }"><a routerLink="/contact-us">contact us</a>
+            <li [ngClass]="{'active' : pageName === 'Bet Sheet'  }"><a routerLink="/bet-sheet"><i style="font-size: 20px" class="fa fa-shopping-cart"></i></a></li>
+
           </ul>
         </div>
       </nav>

@@ -1,5 +1,9 @@
+<app-custom-cursor></app-custom-cursor>
+<!--  header-section start  -->
+<app-header [pageName]="'Bet Sheet'"></app-header>
+
 <!-- play-section start -->
-<section class="play-section section-padding section-bg">
+<section class="play-section section-padding section-bg" id="section">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-6">
@@ -103,16 +107,29 @@
                         <span class="bet-count-num">{{match.winner}}</span>
                       </td>
                       <td>
-                        <i class="fa fa-minus-circle" (click)="delete(match)" ></i>
+                        <i class="fa fa-minus-circle deleteButton" (click)="delete(match)" ></i>
                       </td>
                     </tr>
-
                     </tbody>
-                    <a (click)="submitSheet()" class="cmn-btn btn-lg"><i class="fa fa-play"></i>submit</a>
                   </table>
                 </div>
-
               </div>
+              <br>
+
+              <div class="row">
+                <div class="col-lg-5">
+
+                </div>
+                <div class="col-lg-2">
+                  <a style="color: white;"  href="" data-toggle="modal" data-target="#modalRegisterForm"(click)="submitSheet()" class="cmn-btn btn-lg"><i class="fa fa-play"></i> submit</a>
+                </div>
+
+                <div class="col-lg-5">
+
+                </div>
+              </div>
+              <app-payment></app-payment>
+
 
             </div>
           </div>
@@ -123,3 +140,4 @@
 </section>
 <!-- play-section end -->
 
+<app-footer></app-footer>

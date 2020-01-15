@@ -4,5 +4,5 @@ export class FixtureMatchModel {
   time: string;
   home_name: string;
   away_name: string;
-  played: boolean;
+  played: string;
 }

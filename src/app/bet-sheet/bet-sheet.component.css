@@ -1,0 +1,8 @@
+.submitButton{
+  color: white;
+}
+.deleteButton{
+  font-size: 20px;
+  color: #ff3952;
+  cursor: pointer;
+}

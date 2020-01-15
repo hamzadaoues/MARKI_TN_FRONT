@@ -1,5 +1,10 @@
+
+<app-custom-cursor></app-custom-cursor>
+<!--  header-section start  -->
+<app-header [pageName]="'Fixtures'"></app-header>
+<app-preloader *ngIf="loading"></app-preloader>
 <!-- play-section start -->
-<section class="play-section section-padding section-bg">
+<section class="play-section section-padding section-bg" *ngIf="!loading">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-6">
@@ -94,18 +99,18 @@
                         </div>
                       </td>
                       <td>
-                        <div *ngIf="!match.played" class="choice-team-part">
-                          <div (click)="playMatch(match , 'A')" class="single-item">
+                        <div class="choice-team-part">
+                          <div [ngClass]="{'match-played': match.played === 'A' }" (click)="playMatch(match , 'A')" class="single-item">
                             <span>{{match.home_name}}</span>
-                            <p>1<i class="fa fa-angle-down"></i></p>
+                            <p>A<i class="fa fa-angle-down"></i></p>
                           </div>
-                          <div (click)="playMatch(match , 'X')" class="single-item">
-                            <span>DRAW</span>
+                          <div [ngClass]="{'match-played': match.played === 'X' }" (click)="playMatch(match , 'X')" class="single-item">
+                            <span>Draw</span>
                             <p>X<i class="fa fa-angle-up"></i></p>
                           </div>
-                          <div (click)="playMatch(match , 'B')" class="single-item">
+                          <div [ngClass]="{'match-played': match.played === 'B' }" (click)="playMatch(match , 'B')" class="single-item">
                             <span>{{match.away_name}}</span>
-                            <p>2<i class="fa fa-angle-up"></i></p>
+                            <p>B<i class="fa fa-angle-up"></i></p>
                           </div>
                         </div>
                       </td>
@@ -118,13 +123,27 @@
                 </div>
               </div>
             </div>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col-lg-5">
 
+              </div>
+              <div class="col-lg-2">
+                <a style="color: white;" (click)="submitSheet()" class="cmn-btn btn-lg"> Bet now <i class="fa fa-play"></i></a>
+              </div>
+
+              <div class="col-lg-5">
+
+              </div>
+            </div>
 
           </div>
         </div><!-- online-play-tab-part end -->
       </div>
     </div>
   </div>
-</section>
+</section >
 <!-- play-section end -->
 
+<app-footer *ngIf="!loading"></app-footer>

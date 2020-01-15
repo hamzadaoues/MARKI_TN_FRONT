@@ -13,7 +13,7 @@ export class BetSheetComponent implements OnInit {
 
   BetMatch: BetMatchModel[];
 
-  constructor(private SheetCreationService: SheetCreationService) {
+  constructor(private sheetCreationService: SheetCreationService) {
   }
 
   ngOnInit() {
@@ -21,7 +21,7 @@ export class BetSheetComponent implements OnInit {
   }
 
   getAllBetMatch() {
-    this.SheetCreationService.getAllBetMatch().subscribe((data) => {
+    this.sheetCreationService.getAllBetMatch().subscribe((data) => {
       // @ts-ignore
       this.BetMatch = data.map((item) => {
         let betMatch = new BetMatchModel();
@@ -39,13 +39,13 @@ export class BetSheetComponent implements OnInit {
   }
 
   delete(match: any) {
-    this.BetMatch = this.BetMatch.filter(m => m != match);
-    this.SheetCreationService.deleteMatch(match);
+    this.BetMatch = this.BetMatch.filter(m => m !== match);
+    this.sheetCreationService.deleteMatch(match);
   }
 
   submitSheet() {
     let sheet = new BetSheetModel();
     sheet.betMatches = this.BetMatch;
-    this.SheetCreationService.sheetCreation(sheet).subscribe(response => console.log(response));
+    //this.sheetCreationService.sheetCreation(sheet).subscribe(response => console.log(response));
   }
 }
