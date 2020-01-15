@@ -19,19 +19,11 @@ export class AuthService {
       );
   }
 
-  logout(): Observable<any> {
-    return this.http.get<any>(apiUrl + 'signout')
-      .pipe(
-        tap(_ => this.isLoggedIn = false),
-        catchError(this.handleError('logout', []))
-      );
-  }
-
   register(data: any): Observable<any> {
     return this.http.post<any>(apiUrl + 'signup', data)
       .pipe(
         tap(_ => this.log('login')),
-        catchError(this.handleError('login', []))
+        catchError(this.handleError('register', []))
       );
   }
 
@@ -43,6 +35,11 @@ export class AuthService {
 
       return of(result as T);
     };
+  }
+
+  logOut() {
+    this.isLoggedIn = false;
+    localStorage.removeItem('token');
   }
 
   private log(message: string) {

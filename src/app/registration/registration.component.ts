@@ -11,12 +11,14 @@ import { ErrorStateMatcher } from '@angular/material/core';
 export class RegistrationComponent implements OnInit {
 
   registerForm: FormGroup;
+  error;
   name = '';
   username = '';
   email = '';
   password = '';
-  isLoadingResults = false;
+  isLoading = false;
   matcher = new MyErrorStateMatcher();
+  response = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
 
@@ -30,12 +32,18 @@ export class RegistrationComponent implements OnInit {
   }
 
   onFormSubmit(form: NgForm) {
+    this.isLoading = true;
     this.authService.register(form)
       .subscribe(res => {
-        this.router.navigate(['login']);
+        console.log(form);
       }, (err) => {
         console.log(err);
         alert(err.error);
+        this.error = true;
+        this.response = true;
+      }, () => {
+        this.isLoading = false;
+        this.response = true;
       });
   }
 

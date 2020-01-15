@@ -9,6 +9,7 @@ import {StandingsComponent} from './standings/standings.component';
 import {ResultsComponent} from './results/results.component';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import {AuthGuard} from './_helpers/auth.guard';
+import {NewPasswordComponent} from './new-password/new-password.component';
 
 
 const routes: Routes = [
@@ -84,7 +85,12 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: 'reset-password/:token',
+    component: NewPasswordComponent,
+  },
+  {
     path: 'in-play',
+    canActivate: [AuthGuard],
     component: InPlayComponent
   },
   {

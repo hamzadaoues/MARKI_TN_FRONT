@@ -38,7 +38,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-
+import { NewPasswordComponent } from './new-password/new-password.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +69,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     InPlayComponent,
     StandingsComponent,
     ImagePreloadDirective,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    NewPasswordComponent
   ],
   imports: [
     BrowserModule,
