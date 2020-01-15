@@ -1,5 +1,10 @@
-  <!-- play-section start -->
-  <section class="play-section section-padding section-bg">
+<!-- preloader start -->
+<app-preloader *ngIf="loading"></app-preloader>
+<!-- preloader end -->
+
+
+<!-- play-section start -->
+  <section class="play-section section-padding section-bg" *ngIf="!loading">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-6">
@@ -68,9 +73,17 @@
                         <th class="choice-team">bet your choose team</th>
                         <th class="bet-num">total bet</th>
                       </tr>
+
                       </thead>
-                      <tbody>
-                      <tr *ngFor="let match of liveMatches">
+                      <div  *ngIf="loading" >
+
+                        <div  class="spinner-grow col-lg-4" role="status" >
+                          <span class="sr-only"></span>
+                        </div>
+
+                      </div>
+                      <tbody *ngIf="!loading">
+                      <tr *ngFor="let match of liveMatches" >
                         <td>
                           <div class="team-name-part">
                             <i class="fa fa-futbol-o"></i>
@@ -104,6 +117,12 @@
                         </td>
                         <td>
                           <span class="bet-count-num">+19<i class="fa fa-angle-right"></i></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td *ngIf="!liveMatches?.length > 0">
+                          No results available for this date
+
                         </td>
                       </tr>
                       </tbody>
@@ -1745,3 +1764,11 @@
   </section>
   <!-- play-section end -->
 
+<!-- footer-section start -->
+<app-footer *ngIf="!loading"></app-footer>
+<!-- footer-section end -->
+
+
+<!-- scroll-to-top start -->
+<app-scroll-to-top></app-scroll-to-top>
+<!-- scroll-to-top end -->

@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GetStandingsService } from './get-standings.service';
+import { GetFixturesService } from './get-fixtures.service';
 
-describe('GetStandingsService', () => {
+describe('GetFixturesService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: GetStandingsService = TestBed.get(GetStandingsService);
+    const service: GetFixturesService = TestBed.get(GetFixturesService);
     expect(service).toBeTruthy();
   });
 });

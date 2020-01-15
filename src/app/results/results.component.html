@@ -3,7 +3,6 @@
 <!--  header-section start  -->
 <app-header></app-header>
 <!--  header-section end  -->
-
 <!-- banner-section start -->
 <section class="breadcum-section">
   <div class="breadcum-area">
@@ -41,6 +40,7 @@
             <div class="tab-pane fade show active" id="football" role="tabpanel" aria-labelledby="football-tab">
               <div class="accordion" id="accordionExample-1">
                 <div class="card">
+                  <!--- Champions League --->
                   <div class="card-header" id="champ-league">
                     <h2 class="mb-0">
                       <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
@@ -88,6 +88,10 @@
                     </div>
                   </div>
 <br>
+                  <!--- /Champions League --->
+
+                  <!--- /Europa League --->
+
                   <div class="card-header" id="europa">
                     <h2 class="mb-0">
                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
@@ -134,7 +138,326 @@
                       </div><!-- statistics-result-table end -->
                     </div>
                   </div>
-              </div>
+                  <br>
+                  <!--- /Europa League --->
+
+                  <!--- Premier League --->
+
+                  <div class="card-header" id="premierLeague">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                              data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Premier League
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="world-cup"
+                       data-parent="#accordionExample-1">
+                    <div class="card-body">
+                      <div class="statistics-result-table d-flex">
+                        <div class="statistics-result-area">
+                          <div *ngIf="!isDataPLAvailable" class="spinner-grow" role="status">
+                            <span class="sr-only"></span>
+                          </div>
+                          <div *ngIf="isDataPLAvailable">
+                            <div *ngIf="!premierLeague?.length > 0">
+                              No results available for this date
+                            </div>
+                          </div>
+                          <div *ngFor="let match of premierLeague" class="result-single d-flex align-items-center">
+                            <div class="details">
+                              <p>{{match.date}}</p>
+                              <p>{{match.location}}</p>
+                            </div>
+                            <div class="team-area">
+                              <div class="first-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.home_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:0:1}}</span>
+                              </div>
+                              <div class="second-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.away_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:4:5}}</span>
+                              </div>
+                            </div>
+                          </div><!-- result-single end -->
+                        </div><!-- statistics-result-area end -->
+                      </div><!-- statistics-result-table end -->
+                    </div>
+                  </div>
+                  <br>
+
+                  <!--- /Premier League --->
+
+
+                  <!--- La Liga League --->
+
+                  <div class="card-header" id="LaLigua">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                              data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">LaLiga Santander
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseFour" class="collapse" aria-labelledby="world-cup"
+                       data-parent="#accordionExample-1">
+                    <div class="card-body">
+                      <div class="statistics-result-table d-flex">
+                        <div class="statistics-result-area">
+                          <div *ngIf="!isDataLLAvailable" class="spinner-grow" role="status">
+                            <span class="sr-only"></span>
+                          </div>
+                          <div *ngIf="isDataLLAvailable">
+                            <div *ngIf="!laLiga?.length > 0">
+                              No results available for this date
+                            </div>
+                          </div>
+                          <div *ngFor="let match of laLiga" class="result-single d-flex align-items-center">
+                            <div class="details">
+                              <p>{{match.date}}</p>
+                              <p>{{match.location}}</p>
+                            </div>
+                            <div class="team-area">
+                              <div class="first-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.home_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:0:1}}</span>
+                              </div>
+                              <div class="second-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.away_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:4:5}}</span>
+                              </div>
+                            </div>
+                          </div><!-- result-single end -->
+                        </div><!-- statistics-result-area end -->
+                      </div><!-- statistics-result-table end -->
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <!--- /La Liga League --->
+
+
+                  <!--- Serie A League --->
+
+                  <div class="card-header" id="SerieA">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                              data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">Serie A
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseSix" class="collapse" aria-labelledby="world-cup"
+                       data-parent="#accordionExample-1">
+                    <div class="card-body">
+                      <div class="statistics-result-table d-flex">
+                        <div class="statistics-result-area">
+                          <div *ngIf="!isDataSAAvailable" class="spinner-grow" role="status">
+                            <span class="sr-only"></span>
+                          </div>
+                          <div *ngIf="isDataSAAvailable">
+                            <div *ngIf="!serieA?.length > 0">
+                              No results available for this date
+                            </div>
+                          </div>
+                          <div *ngFor="let match of serieA" class="result-single d-flex align-items-center">
+                            <div class="details">
+                              <p>{{match.date}}</p>
+                              <p>{{match.location}}</p>
+                            </div>
+                            <div class="team-area">
+                              <div class="first-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.home_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:0:1}}</span>
+                              </div>
+                              <div class="second-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.away_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:4:5}}</span>
+                              </div>
+                            </div>
+                          </div><!-- result-single end -->
+                        </div><!-- statistics-result-area end -->
+                      </div><!-- statistics-result-table end -->
+                    </div>
+                  </div>
+                  <br>
+
+                  <!--- /Serie A League --->
+
+
+                  <!--- Bundesliga  League --->
+
+                  <div class="card-header" id="Bundesliga">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                              data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">Bundesliga
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseEight" class="collapse" aria-labelledby="world-cup"
+                       data-parent="#accordionExample-1">
+                    <div class="card-body">
+                      <div class="statistics-result-table d-flex">
+                        <div class="statistics-result-area">
+                          <div *ngIf="!isDataBLAvailable" class="spinner-grow" role="status">
+                            <span class="sr-only"></span>
+                          </div>
+                          <div *ngIf="isDataBLAvailable">
+                            <div *ngIf="!bundesliga?.length > 0">
+                              No results available for this date
+                            </div>
+                          </div>
+                          <div *ngFor="let match of bundesliga" class="result-single d-flex align-items-center">
+                            <div class="details">
+                              <p>{{match.date}}</p>
+                              <p>{{match.location}}</p>
+                            </div>
+                            <div class="team-area">
+                              <div class="first-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.home_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:0:1}}</span>
+                              </div>
+                              <div class="second-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.away_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:4:5}}</span>
+                              </div>
+                            </div>
+                          </div><!-- result-single end -->
+                        </div><!-- statistics-result-area end -->
+                      </div><!-- statistics-result-table end -->
+                    </div>
+                  </div>
+                  <br>
+
+                  <!--- /Bundesliga League --->
+
+                  <!--- Tunsian Professional League  --->
+
+                  <div class="card-header" id="TunisanLeague">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                              data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">Tunsian Professional League
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseSeven" class="collapse" aria-labelledby="world-cup"
+                       data-parent="#accordionExample-1">
+                    <div class="card-body">
+                      <div class="statistics-result-table d-flex">
+                        <div class="statistics-result-area">
+                          <div *ngIf="!isDataTLAvailable" class="spinner-grow" role="status">
+                            <span class="sr-only"></span>
+                          </div>
+                          <div *ngIf="isDataTLAvailable">
+                            <div *ngIf="!tunisianProfessionalLeague?.length > 0">
+                              No results available for this date
+                            </div>
+                          </div>
+                          <div *ngFor="let match of tunisianProfessionalLeague" class="result-single d-flex align-items-center">
+                            <div class="details">
+                              <p>{{match.date}}</p>
+                              <p>{{match.location}}</p>
+                            </div>
+                            <div class="team-area">
+                              <div class="first-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.home_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:0:1}}</span>
+                              </div>
+                              <div class="second-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.away_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:4:5}}</span>
+                              </div>
+                            </div>
+                          </div><!-- result-single end -->
+                        </div><!-- statistics-result-area end -->
+                      </div><!-- statistics-result-table end -->
+                    </div>
+                  </div>
+                  <br>
+
+                  <!--- /Tunsian Professional League  --->
+
+                  <!--- Ligue 1 League --->
+
+                  <div class="card-header" id="Ligue1">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                              data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Ligue 1
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseFive" class="collapse" aria-labelledby="world-cup"
+                       data-parent="#accordionExample-1">
+                    <div class="card-body">
+                      <div class="statistics-result-table d-flex">
+                        <div class="statistics-result-area">
+                          <div *ngIf="!isDataL1Available" class="spinner-grow" role="status">
+                            <span class="sr-only"></span>
+                          </div>
+                          <div *ngIf="isDataL1Available">
+                            <div *ngIf="!ligue1?.length > 0">
+                              No results available for this date
+                            </div>
+                          </div>
+                          <div *ngFor="let match of ligue1" class="result-single d-flex align-items-center">
+                            <div class="details">
+                              <p>{{match.date}}</p>
+                              <p>{{match.location}}</p>
+                            </div>
+                            <div class="team-area">
+                              <div class="first-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.home_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:0:1}}</span>
+                              </div>
+                              <div class="second-team d-flex align-items-center justify-content-between">
+                                <div class="team">
+                                  <span class="flag"><img src="assets/images/promotion/4.jpg" alt="image"></span>
+                                  <span class="team-name">{{match.away_name| slice:0:8}}</span>
+                                </div>
+                                <span class="result">{{match.score| slice:4:5}}</span>
+                              </div>
+                            </div>
+                          </div><!-- result-single end -->
+                        </div><!-- statistics-result-area end -->
+                      </div><!-- statistics-result-table end -->
+                    </div>
+                  </div>
+                  <br>
+
+                  <!--- /Ligue 1 League --->
+
+                </div>
             </div>
           </div>
         </div><!-- online-play-tab-part end -->

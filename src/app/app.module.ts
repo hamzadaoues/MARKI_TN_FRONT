@@ -29,16 +29,30 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { InPlayComponent } from './in-play/in-play.component';
 import { HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
-import { StandingsComponent } from './standings/standings.component';
-import { ImagePreloadDirective } from './_directives/image-preload.directive';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { BetSheetDetailsComponent } from './bet-sheet-details/bet-sheet-details.component';
+import {ImagePreloadDirective} from './_directives/image-preload.directive';
+import {StandingsComponent} from './standings/standings.component';
+import {
+  MatDatepickerModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatNativeDateModule,
+  MatPaginatorModule, MatSortModule,
+  MatTableModule
+} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+<<<<<<< HEAD
 import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
+=======
+import {BetSheetComponent} from './bet-sheet/bet-sheet.component';
+import {FixturesComponent} from './fixtures/fixtures.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {PaymentComponent} from './payment/payment.component';
+
+>>>>>>> c9f6d4571cf6100b31a0af3d75cfcebb7c6942cf
 
 @NgModule({
   declarations: [
@@ -67,12 +81,21 @@ import { NewPasswordComponent } from './new-password/new-password.component';
     ResultsComponent,
     AboutUsComponent,
     InPlayComponent,
+    BetSheetDetailsComponent,
+    InPlayComponent,
     StandingsComponent,
+<<<<<<< HEAD
     ImagePreloadDirective,
     ResetPasswordComponent,
     NewPasswordComponent
+=======
+    FixturesComponent,
+    BetSheetComponent,
+    PaymentComponent
+>>>>>>> c9f6d4571cf6100b31a0af3d75cfcebb7c6942cf
   ],
   imports: [
+    FontAwesomeModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -94,4 +117,5 @@ import { NewPasswordComponent } from './new-password/new-password.component';
   }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

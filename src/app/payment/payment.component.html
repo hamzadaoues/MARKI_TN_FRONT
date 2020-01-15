@@ -1,0 +1,81 @@
+
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <div class="contact-form-area">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+          <button type="button" class="close" data-dismiss="modal" data-target="#section"  aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form class="cmn-form contact-form"[formGroup]="paymentForm" (ngSubmit)="chargeCreditCard()">
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <div class="frm-group">
+                <input [ngClass]="{'border border-danger': submitted && paymentForm.controls.cardNumber.value === null}"
+                       type="number"
+                       placeholder="Credit Card #"
+                       name="cardNumber"
+                       formControlName="cardNumber">
+              </div>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-4">
+              <div class="frm-group">
+                <input [ngClass]="{'border border-danger': submitted && paymentForm.controls.expMonth.value === null}"
+                       type="number"
+                       placeholder="Expiration Month"
+                       name="expMonth"
+                       formControlName="expMonth">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="frm-group">
+                <input type="number"
+                       placeholder="Expiration Year"
+                       name="expYear"
+                       formControlName="expYear"
+                       [ngClass]="{'border border-danger': submitted && paymentForm.controls.expYear.value === null}">
+              </div>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+              <div class="frm-group">
+                <input type="number"
+                       placeholder="CVC"
+                       name="cvc"
+                       formControlName="cvc"
+                       [ngClass]="{'border border-danger': submitted && (paymentForm.controls.cvc.value === null || paymentForm.controls.cvc.invalid)}">
+              </div>
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-12">
+              <div class="frm-group text-center">
+                <button  type="submit" class="submit-btn">Process Payment </button>
+                <br>
+                <br>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-lg-4"></div>
+
+  </div>
+</div>
