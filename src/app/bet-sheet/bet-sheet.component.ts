@@ -46,6 +46,6 @@ export class BetSheetComponent implements OnInit {
   submitSheet() {
     let sheet = new BetSheetModel();
     sheet.betMatches = this.BetMatch;
-    //this.sheetCreationService.sheetCreation(sheet).subscribe(response => console.log(response));
+    this.sheetCreationService.sheetCreation(sheet).subscribe(response => console.log(response));
   }
 }
