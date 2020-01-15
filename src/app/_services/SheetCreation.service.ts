@@ -16,7 +16,7 @@ export class SheetCreationService {
   playMatch(betMatch: BetMatchModel) {
     // Creates a betMatch item if not exists in Session Storage
     if (sessionStorage.getItem('betMatch') === null) {
-      let betMatchs =  [];
+      const betMatchs =  [];
       sessionStorage.setItem('betMatch', JSON.stringify(betMatchs));
     }
     // Get BetMatch item if it exists to add new element
@@ -45,6 +45,10 @@ export class SheetCreationService {
 
   sheetCreation(sheet: BetSheetModel) {
     return this.http.post(BASE_API + BET_SHEET, sheet);
+  }
+
+  getAllSheet() {
+    return this.http.get<BetSheetModel[]>(BASE_API + BET_SHEET);
   }
 
 

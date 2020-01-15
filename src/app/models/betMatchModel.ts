@@ -9,4 +9,5 @@ export class BetMatchModel {
   time: string;
   home_name: string;
   away_name: string;
+  finished: string;
 }

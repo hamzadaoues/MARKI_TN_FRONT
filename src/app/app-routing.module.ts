@@ -8,9 +8,7 @@ import {ErrorNotFoundComponent} from './error-not-found/error-not-found.componen
 import {StandingsComponent} from './standings/standings.component';
 import {ResultsComponent} from './results/results.component';
 import {AuthGuard} from './_helpers/auth.guard';
-<<<<<<< HEAD
 import {NewPasswordComponent} from './new-password/new-password.component';
-=======
 import {BetSheetDetailsComponent} from './bet-sheet-details/bet-sheet-details.component';
 import {AboutUsComponent} from './about-us/about-us.component';
 import {ContactUsComponent} from './contact-us/contact-us.component';
@@ -21,7 +19,6 @@ import {LiveNewsComponent} from './layout/live-news/live-news.component';
 import {LiveNewsDetailsComponent} from './live-news-details/live-news-details.component';
 import {BetSheetComponent} from './bet-sheet/bet-sheet.component';
 import {FixturesComponent} from './fixtures/fixtures.component';
->>>>>>> c9f6d4571cf6100b31a0af3d75cfcebb7c6942cf
 
 
 const routes: Routes = [

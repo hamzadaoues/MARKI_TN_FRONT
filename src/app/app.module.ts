@@ -1,58 +1,52 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { TokenInterceptor } from './_interceptors/token-interceptor';
-import { HTTP_INTERCEPTORS} from '@angular/common/http';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './layout/header/header.component';
-import { FooterComponent } from './layout/footer/footer.component';
-import { ScrollToTopComponent } from './layout/scroll-to-top/scroll-to-top.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {TokenInterceptor} from './_interceptors/token-interceptor';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AppComponent} from './app.component';
+import {HeaderComponent} from './layout/header/header.component';
+import {FooterComponent} from './layout/footer/footer.component';
+import {ScrollToTopComponent} from './layout/scroll-to-top/scroll-to-top.component';
 import {CustomCursorComponent} from './layout/custom-cursor/custom-cursor.component';
-import { BannerComponent } from './layout/banner/banner.component';
-import { PreloaderComponent } from './layout/preloader/preloader.component';
-import { FeaturesBoxComponent } from './layout/features-box/features-box.component';
-import { GamesComponent } from './layout/games/games.component';
-import { DownloadAppSectionComponent } from './layout/download-app-section/download-app-section.component';
-import { StepsToPlayComponent } from './layout/steps-to-play/steps-to-play.component';
-import { OurServicesComponent } from './layout/our-services/our-services.component';
-import { TestimonialComponent } from './layout/testimonial/testimonial.component';
-import { LiveNewsComponent } from './layout/live-news/live-news.component';
-import { HomeComponent } from './layout/home/home.component';
-import { ErrorNotFoundComponent } from './error-not-found/error-not-found.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { StatisticsComponent } from './statistics/statistics.component';
-import { PromotionsComponent } from './promotions/promotions.component';
-import { LiveNewsDetailsComponent } from './live-news-details/live-news-details.component';
-import { ResultsComponent } from './results/results.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { InPlayComponent } from './in-play/in-play.component';
-import { HttpClientModule} from '@angular/common/http';
+import {BannerComponent} from './layout/banner/banner.component';
+import {PreloaderComponent} from './layout/preloader/preloader.component';
+import {FeaturesBoxComponent} from './layout/features-box/features-box.component';
+import {GamesComponent} from './layout/games/games.component';
+import {DownloadAppSectionComponent} from './layout/download-app-section/download-app-section.component';
+import {StepsToPlayComponent} from './layout/steps-to-play/steps-to-play.component';
+import {OurServicesComponent} from './layout/our-services/our-services.component';
+import {TestimonialComponent} from './layout/testimonial/testimonial.component';
+import {LiveNewsComponent} from './layout/live-news/live-news.component';
+import {HomeComponent} from './layout/home/home.component';
+import {ErrorNotFoundComponent} from './error-not-found/error-not-found.component';
+import {ContactUsComponent} from './contact-us/contact-us.component';
+import {LoginComponent} from './login/login.component';
+import {RegistrationComponent} from './registration/registration.component';
+import {StatisticsComponent} from './statistics/statistics.component';
+import {PromotionsComponent} from './promotions/promotions.component';
+import {LiveNewsDetailsComponent} from './live-news-details/live-news-details.component';
+import {ResultsComponent} from './results/results.component';
+import {AboutUsComponent} from './about-us/about-us.component';
+import {InPlayComponent} from './in-play/in-play.component';
+import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
-import { BetSheetDetailsComponent } from './bet-sheet-details/bet-sheet-details.component';
+import {BetSheetDetailsComponent} from './bet-sheet-details/bet-sheet-details.component';
 import {ImagePreloadDirective} from './_directives/image-preload.directive';
 import {StandingsComponent} from './standings/standings.component';
 import {
   MatDatepickerModule,
   MatFormFieldModule,
-  MatInputModule,
-  MatNativeDateModule,
-  MatPaginatorModule, MatSortModule,
-  MatTableModule
-} from '@angular/material';
+  MatNativeDateModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-<<<<<<< HEAD
-import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { NewPasswordComponent } from './new-password/new-password.component';
-=======
+import {MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule} from '@angular/material';
+import {ResetPasswordComponent} from './reset-password/reset-password.component';
+import {NewPasswordComponent} from './new-password/new-password.component';
 import {BetSheetComponent} from './bet-sheet/bet-sheet.component';
 import {FixturesComponent} from './fixtures/fixtures.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {PaymentComponent} from './payment/payment.component';
+import { MinimizeLengthPipe } from './minimize-length.pipe';
 
->>>>>>> c9f6d4571cf6100b31a0af3d75cfcebb7c6942cf
 
 @NgModule({
   declarations: [
@@ -84,15 +78,13 @@ import {PaymentComponent} from './payment/payment.component';
     BetSheetDetailsComponent,
     InPlayComponent,
     StandingsComponent,
-<<<<<<< HEAD
     ImagePreloadDirective,
     ResetPasswordComponent,
-    NewPasswordComponent
-=======
+    NewPasswordComponent,
     FixturesComponent,
     BetSheetComponent,
-    PaymentComponent
->>>>>>> c9f6d4571cf6100b31a0af3d75cfcebb7c6942cf
+    PaymentComponent,
+    MinimizeLengthPipe
   ],
   imports: [
     FontAwesomeModule,
