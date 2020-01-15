@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {PaymentService} from '../_services/payment.service';
@@ -13,6 +13,8 @@ export class PaymentComponent implements OnInit {
   formProcess: boolean;
   message: string;
   paymentForm: FormGroup;
+  @Input()
+  amount: number;
 
   constructor(private paymentService: PaymentService,
               private formBuilder: FormBuilder) { }
@@ -55,7 +57,7 @@ export class PaymentComponent implements OnInit {
   chargeCard(token: string) {
       let headers = new HttpHeaders();
       headers = headers.append('token', token);
-      headers = headers.append('amount', '200');
+      headers = headers.append('amount', this.amount.toString());
       this.paymentService.doPayment(headers);
   }
 

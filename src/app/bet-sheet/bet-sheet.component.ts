@@ -12,6 +12,9 @@ import {BetSheetModel} from '../models/betSheetModel';
 export class BetSheetComponent implements OnInit {
 
   BetMatch: BetMatchModel[];
+  amount: number = 0;
+  estimatedGain: number = 0;
+  selectedMatches: any [];
 
   constructor(private sheetCreationService: SheetCreationService) {
   }
@@ -47,5 +50,21 @@ export class BetSheetComponent implements OnInit {
     let sheet = new BetSheetModel();
     sheet.betMatches = this.BetMatch;
     this.sheetCreationService.sheetCreation(sheet).subscribe(response => console.log(response));
+  }
+
+  estimateGain() {
+    const selectedmatches = JSON.parse(sessionStorage.getItem('betMatch'));
+    const length = selectedmatches.length;
+    console.log(length);
+    if ( length >= 0 && length <= 5) {  let gain = this.amount * 0.05;
+                                        this.estimatedGain = this.amount + gain;
+    }
+    if (length > 5 && length <= 10) { let gain = this.amount * 0.1;
+                                      this.estimatedGain = this.amount + gain; }
+    else {
+      let gain = this.amount * 0.2;
+      this.estimatedGain = this.amount + gain;
+    }
+
   }
 }
