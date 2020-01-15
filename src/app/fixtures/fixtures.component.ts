@@ -4,7 +4,7 @@ import {FixtureMatchModel} from '../models/FixtureMatchModel';
 import {SheetCreationService} from '../_services/SheetCreation.service';
 import {BetMatchModel} from '../models/betMatchModel';
 import {ActivatedRoute, Router} from '@angular/router';
-
+declare var $: any;
 @Component({
   selector: 'app-fixtures',
   templateUrl: './fixtures.component.html',
@@ -22,6 +22,11 @@ export class FixturesComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Animate the scroll to top
+    $('.scroll-to-top').on('click', function(event) {
+      event.preventDefault();
+      $('html, body').animate({scrollTop: 0}, 800);
+    });
     this.loading = true;
     this.getFixtures();
   }

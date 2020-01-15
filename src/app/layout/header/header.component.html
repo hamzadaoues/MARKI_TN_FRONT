@@ -14,7 +14,7 @@
             <li [ngClass]="{'active' : pageName === 'In-play'  }"><a routerLink="/in-play">In-play</a></li>
             <li [ngClass]="{'active' : pageName === 'Fixtures'  }"><a routerLink="/fixtures">Fixtures</a></li>
             <li [ngClass]="{'active' : pageName === 'Result'  }"><a routerLink="/results">Results</a></li>
-            <li class="menu_has_children"><a href="#">Standings</a>
+            <li class="menu_has_children"><a routerLink="/PremierLeague/2">Standings</a>
               <ul class="sub-menu">
                 <li [ngClass]="{'active' : pageName === 'Premier League' }" ><a routerLink="/PremierLeague/2">Premier League</a></li>
                 <li [ngClass]="{'active' : pageName === 'Bundesliga'  }"><a routerLink="/Bundesliga/1">Bundesliga</a></li>

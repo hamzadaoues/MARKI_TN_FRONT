@@ -1,9 +1,15 @@
 <app-custom-cursor></app-custom-cursor>
 <!--  header-section start  -->
 <app-header [pageName]="'Bet Sheet'"></app-header>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.4)"
+  size="medium"
+  color="#000040"
+  type="square-jelly-box"
+></ngx-spinner>
 
 <!-- play-section start -->
-<section class="play-section section-padding section-bg" id="section">
+<section class="play-section section-padding section-bg" id="section" *ngIf="existDataInSessionStorage && !loading">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-6">
@@ -85,7 +91,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr *ngFor="let match of BetMatch">
+                    <tr *ngFor="let match of betMatchs">
                       <td>
                         <div class="team-name-part">
                           <i class="fa fa-futbol-o"></i>
@@ -156,4 +162,18 @@
 </section>
 <!-- play-section end -->
 
-<app-footer></app-footer>
+
+<div class="container" *ngIf="!existDataInSessionStorage && !loading">
+  <br>
+  <br>
+  <h4 style="text-align: center">Your Cart is Empty </h4>
+  <div class="text-center"><img src="../assets/empty/empty2c.png" alt="">
+    <br>
+
+    <a style="color: white;"  routerLink="/fixtures"  class="cmn-btn btn-lg" >Bet Now <i class="fa fa-arrow-circle-right"></i></a>
+  </div>
+  <br>
+  <div class="gap"></div>
+</div>
+
+<app-footer *ngIf="!loading"></app-footer>

@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validat
 import {Router} from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { ErrorStateMatcher } from '@angular/material/core';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,10 @@ export class LoginComponent implements OnInit {
   error = false;
   errorMessage: string;
   submitted: boolean;
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder,
+              private router: Router,
+              private authService: AuthService,
+              private spinner: NgxSpinnerService) { }
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       usernameOrEmail : [null, Validators.required],
@@ -27,20 +31,23 @@ export class LoginComponent implements OnInit {
   }
 
   onFormSubmit(form: NgForm) {
+    this.spinner.show();
     this.isLoading = true;
     this.submitted = true;
     this.authService.login(form)
       .subscribe(res => {
         this.submitted = true;
         console.log(res);
-        if (res.token) {
-          localStorage.setItem('token', res.token);
+        if (res.accessToken) {
+          localStorage.setItem('token', res.accessToken);
         }
       }, (error) => {
         this.errorMessage = error.error.message;
         this.error = true;
+        this.spinner.hide();
       }, () => {
         this.isLoading = false;
+        this.spinner.hide();
         this.router.navigate(['in-play']);
       });
   }

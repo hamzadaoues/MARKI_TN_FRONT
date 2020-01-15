@@ -19,7 +19,7 @@ export class SheetCreationService {
     // Creates a betMatch item if not exists in Session Storage
     // Creates an expiryTime (1 hour )
     if (sessionStorage.getItem('betMatch') === null) {
-      let betMatchs =  [];
+      const betMatchs =  [];
       sessionStorage.setItem('betMatch', JSON.stringify(betMatchs));
       sessionStorage.setItem('expiryTime', now.toString());
     }
@@ -27,7 +27,7 @@ export class SheetCreationService {
         sessionStorage.clear()
         sessionStorage.setItem('expiryTime', now.toString());
     }
-    // Get BetMatch item if it exists to add new element
+    // Get betMatchs item if it exists to add new element
     let betMatchs = JSON.parse(sessionStorage.getItem('betMatch'));
     // Check if we made i decision to that match , if yes we will update that decision
     betMatchs = betMatchs.filter(m => m.fixture_id !== betMatch.fixture_id);
@@ -52,6 +52,10 @@ export class SheetCreationService {
 
   sheetCreation(sheet: BetSheetModel) {
     return this.http.post(BASE_API + BET_SHEET, sheet);
+  }
+
+  getAllSheet() {
+    return this.http.get<BetSheetModel[]>(BASE_API + BET_SHEET);
   }
 
 

@@ -30,6 +30,14 @@
 
                   <span class="alert alert-danger  frm-group" role="alert" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter your password</span>
               </div>
+
+              <ngx-spinner
+                bdColor="rgba(51,51,51,0.4)"
+                size="medium"
+                color="#000040"
+                type="square-jelly-box"
+              ></ngx-spinner>
+
               <div class="row">
                 <div class="col-lg-4">
 

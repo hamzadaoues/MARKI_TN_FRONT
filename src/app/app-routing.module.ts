@@ -46,7 +46,6 @@ const routes: Routes = [
   },
   {
     path: 'in-play',
-    canActivate: [AuthGuard],
     component: InPlayComponent
   },
   {

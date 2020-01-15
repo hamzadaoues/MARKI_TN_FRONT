@@ -1,4 +1,10 @@
+import {BetMatchModel} from './betMatchModel';
+
 export class BetSheetModel {
-  betMatches = [];
-  validated = "false";
+  betMatches: BetMatchModel[];
+  validated = 'false';
+  finished = 'false';
+  wonSheet = 'false';
+  id: string;
+  nbmatch: number;
 }

@@ -1,3 +1,7 @@
 .cancelButton{
   background: #000040;
 }
+
+.modal-open {
+  overflow: scroll;
+}

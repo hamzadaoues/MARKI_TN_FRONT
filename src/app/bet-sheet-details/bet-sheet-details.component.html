@@ -1,9 +1,8 @@
-
-
 <app-custom-cursor></app-custom-cursor>
 <!--  header-section start  -->
 <app-header [pageName]="'My-Bet-Sheets'"></app-header>
-<section class="play-section section-padding section-bg">
+<app-preloader *ngIf="loading"></app-preloader>
+<section class="play-section section-padding section-bg" *ngIf="betSheetList !== [] && !loading ">
   <div class="container">
     <div class="section-header text-center">
       <h2 class="section-title">My Bet Sheets</h2>
@@ -59,7 +58,7 @@
                 </ul>
       -->
 
-      <div  class="col-md-3 tab-content" id="myTabContefnt">
+      <div class="col-md-3 tab-content" id="myTabContefnt">
 
         <!--              <div class="tab-pane fade" id="football" role="tabpanel" aria-labelledby="football-tab">-->
         <div class="play-table-part">
@@ -71,127 +70,19 @@
               </tr>
               </thead>
               <tbody>
-              <tr>
-                <td>
-                  <div class="team-name-part">
+
+              <tr *ngFor="let sheet of betSheetList" (click)="selectSheet(sheet)">
+                <td class="selectedBetSheet">
+                  <div class="team-name-part selectedBetSheet">
                     <i class="fa fa-futbol-o"></i>
                     <div class="content">
-                      <span class="name">BetSheet 1</span>
+                      <span class="name betSheetName">BetSheet {{sheet.id}}</span>
                     </div>
                   </div>
                 </td>
 
               </tr>
-              <tr>
-                <td>
-                  <div class="team-name-part">
-                    <i class="fa fa-futbol-o"></i>
-                    <div class="content">
-                      <span class="name">BetSheet 2</span>
-                    </div>
-                  </div>
-                </td>
 
-              </tr>
-              <tr>
-                <td>
-                  <div class="team-name-part">
-                    <i class="fa fa-futbol-o"></i>
-                    <div class="content">
-                      <span class="name">BetSheet 3 </span>
-                    </div>
-                  </div>
-                </td>
-
-              </tr>
-              <tr>
-                <td>
-                  <div class="team-name-part">
-                    <i class="fa fa-futbol-o"></i>
-                    <div class="content">
-                      <span class="name">BetSheet 3 </span>
-                    </div>
-                  </div>
-                </td>
-
-              </tr>
-              <tr>
-                <td>
-                  <div class="team-name-part">
-                    <i class="fa fa-futbol-o"></i>
-                    <div class="content">
-                      <span class="name">BetSheet 3 </span>
-                    </div>
-                  </div>
-                </td>
-
-              </tr>
-              <tr>
-                <td>
-                  <div class="team-name-part">
-                    <i class="fa fa-futbol-o"></i>
-                    <div class="content">
-                      <span class="name">BetSheet 3 </span>
-                    </div>
-                  </div>
-                </td>
-
-              </tr>
-              <tr>
-                <td>
-                  <div class="team-name-part">
-                    <i class="fa fa-futbol-o"></i>
-                    <div class="content">
-                      <span class="name">BetSheet 3 </span>
-                    </div>
-                  </div>
-                </td>
-
-              </tr>
-              <tr>
-                <td>
-                  <div class="team-name-part">
-                    <i class="fa fa-futbol-o"></i>
-                    <div class="content">
-                      <span class="name">BetSheet 3 </span>
-                    </div>
-                  </div>
-                </td>
-
-              </tr>
-              <tr>
-                <td>
-                  <div class="team-name-part">
-                    <i class="fa fa-futbol-o"></i>
-                    <div class="content">
-                      <span class="name">BetSheet 3 </span>
-                    </div>
-                  </div>
-                </td>
-
-              </tr>
-              <tr>
-                <td>
-                  <div class="team-name-part">
-                    <i class="fa fa-futbol-o"></i>
-                    <div class="content">
-                      <span class="name">BetSheet 3 </span>
-                    </div>
-                  </div>
-                </td>
-
-              </tr>
-              <tr>
-                <td>
-                  <div class="team-name-part">
-                    <i class="fa fa-futbol-o"></i>
-                    <div class="content">
-                      <span class="name">BetSheet 3 </span>
-                    </div>
-                  </div>
-                </td>
-
-              </tr>
 
               </tbody>
             </table>
@@ -204,25 +95,25 @@
       <div style="padding-left: 0px;padding-right: 0px" class="col-md-6 tab-content" id="myTabContent">
 
         <!--              <div class="tab-pane fade" id="football" role="tabpanel" aria-labelledby="football-tab">-->
-        <div class="play-table-part">
+        <div *ngIf="selectedSheet" class="play-table-part">
           <div class="play-table">
             <table>
               <thead>
               <tr>
                 <th class="goal">Team A</th>
                 <th class="goal">Team B</th>
-                <th class="choice-team">Time</th>
-                <th class="bet-num">Live score</th>
-                <th class="goal">Details</th>
+                <th class="choice-team">Finished</th>
+                <th class="bet-num">Winner</th>
               </tr>
               </thead>
               <tbody>
-              <tr>
+              <!-- Debut bet Match -->
+              <tr class="selectedBetSheet" *ngFor="let match of selectedSheet.betMatches">
                 <td>
                   <div class="team-name-part">
                     <i class="fa fa-futbol-o"></i>
                     <div class="content">
-                      <span class="name">Barcelona</span>
+                      <span class="name betSheetName">{{match.home_name | minimizeLength:15}}</span>
                     </div>
                   </div>
                 </td>
@@ -230,44 +121,25 @@
                   <div class="team-name-part">
                     <i class="fa fa-futbol-o"></i>
                     <div class="content">
-                      <span class="name goal">Barcelona</span>
+                      <span class="name goal betSheetName">{{match.away_name}}</span>
                     </div>
                   </div>
                 </td>
                 <td>
-                  <div class="score">
-                    <span class="first-team-score">2</span>
-                    <span class="second-team-score">2</span>
+                  <div class="team-name-part">
+                    <span *ngIf="match.finished" class="name betSheetName">YES</span>
+                    <span *ngIf="!match.finished" class="name betSheetName">NO</span>
                   </div>
                 </td>
                 <td>
-                  <div class="score">
-                    <span class="first-team-score">2</span>
-                    <span class="second-team-score">2</span>
+                  <div class="team-name-part">
+                    <span class="namebetSheetName">{{match.winner}}</span>
                   </div>
-                </td>
-                <td>
-                    <div class="single-item1"
-                         (click)="displayOrHideDetails()"
-                    >
-                      <span style="font-size: 14px;padding-left: 9px;padding-right: 10px;">Details
-                        <i *ngIf="betSheetHidden"
-                           style="cursor: pointer"
-                           aria-hidden="true"
-                           class="fa fa-plus-circle"
-                        >
-                        </i>
-                       <i *ngIf="!betSheetHidden"
-                          style="cursor: pointer"
-                          class="fa fa-minus-circle"
-                          aria-hidden="true"
-                       >
-                       </i>
-                    </span>
-                    </div>
                 </td>
 
+
               </tr>
+              <!-- Fin bet Match -->
 
 
               </tbody>
@@ -278,7 +150,7 @@
 
       </div>
 
-      <div *ngIf="plus" class="col-md-3 tab-content" id="myTabContdefnt">
+      <div *ngIf="selectedSheet" class="col-md-3 tab-content" id="myTabContdefnt">
 
         <!--              <div class="tab-pane fade" id="football" role="tabpanel" aria-labelledby="football-tab">-->
         <div class="play-table-part">
@@ -286,7 +158,7 @@
             <table>
               <thead>
               <tr>
-                <th class="goal">BetSheet</th>
+                <th class="goal">Sheet Details</th>
               </tr>
               </thead>
               <tbody>
@@ -296,14 +168,22 @@
                     <div class="content">
                       <span class="name">
                         <ul>
-                          <li>betsheet info</li>
-                          <li>betsheet info</li>
-                          <li>betsheet info</li>
-                          <li>betsheet info</li>
-                          <li>betsheet info</li>
-                          <li>betsheet info</li>
-                          <li>betsheet info</li>
-                          <li>betsheet info</li>
+                          <li>Id  : {{selectedSheet.id}}</li>
+                          <li>Validated : {{selectedSheet.validated}}</li>
+                          <li>Number of matchs : {{selectedSheet.nbmatch}}</li>
+                          <li>Status : <span *ngIf="selectedSheet.finished">Finished</span>
+                          <span *ngIf="!selectedSheet.finished">In progress</span></li>
+                          <div class="row">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-4">
+                              <i *ngIf="!selectedSheet.finished" class="fa fa-spinner"></i>
+                            </div>
+                              <div class="col-lg-4"></div>
+                          </div>
+                          <li *ngIf="selectedSheet.finished">
+                            <span *ngIf="selectedSheet.wonSheet">You won the sheet !</span>
+                            <span *ngIf="!selectedSheet.wonSheet">You lose the sheet !</span>
+                          </li>
                         </ul>
                       </span>
                     </div>
@@ -327,4 +207,22 @@
 
 </section>
 
-<app-footer></app-footer>
+<div class="container" *ngIf="betSheetList === [] ">
+  <br>
+  <br>
+  <h4 style="text-align: center">You have no bet sheets </h4>
+
+  <div class="text-center"><img src="../assets/empty/empty2c.png" alt="">
+    <br>
+
+    <a style="color: white;"  routerLink="/fixtures"  class="cmn-btn btn-lg" >Bet Now <i class="fa fa-arrow-circle-right"></i></a>
+  </div>
+  <br>
+  <div class="gap"></div>
+</div>
+
+<!-- scroll-to-top start -->
+<app-scroll-to-top></app-scroll-to-top>
+<!-- scroll-to-top end -->
+
+<app-footer *ngIf="!loading"></app-footer>
