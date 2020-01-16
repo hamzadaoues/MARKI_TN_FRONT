@@ -4,7 +4,8 @@ import {FixtureMatchModel} from '../models/FixtureMatchModel';
 import {SheetCreationService} from '../_services/SheetCreation.service';
 import {BetMatchModel} from '../models/betMatchModel';
 import {ActivatedRoute, Router} from '@angular/router';
-
+import {AuthService} from '../_services/auth.service';
+declare var $: any;
 @Component({
   selector: 'app-fixtures',
   templateUrl: './fixtures.component.html',
@@ -18,10 +19,16 @@ export class FixturesComponent implements OnInit {
 
   constructor(private fixtureMatchService: GetFixturesService,
               private sheetCreationService: SheetCreationService,
-              private router: Router) {
+              private router: Router,
+              private authService: AuthService) {
   }
 
   ngOnInit() {
+    // Animate the scroll to top
+    $('.scroll-to-top').on('click', function(event) {
+      event.preventDefault();
+      $('html, body').animate({scrollTop: 0}, 800);
+    });
     this.loading = true;
     this.getFixtures();
   }
@@ -66,7 +73,19 @@ export class FixturesComponent implements OnInit {
       this.sheetCreationService.playMatch(betMatch);
     }
   }
+  submitSheet() {
+    this.authService.getCurrentUser().subscribe(
+      (data: any) => {
+        if (data.name !== '') {
+          console.log('here')
+          this.router.navigateByUrl('/bet-sheet');
+        }
+      }, (error) => {
+        console.log('error current user');
+        console.log(error);
+        this.router.navigateByUrl('/login');
 
-  submitSheet() {this.router.navigateByUrl('/bet-sheet');
+      }
+    );
   }
 }

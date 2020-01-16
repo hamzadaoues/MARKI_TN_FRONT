@@ -3,7 +3,9 @@ import {SheetCreationService} from '../_services/SheetCreation.service';
 import {BetMatchModel} from '../models/betMatchModel';
 import {MatchEntityModel} from '../models/MatchEntityModel';
 import {BetSheetModel} from '../models/betSheetModel';
-
+import {NgxSpinnerService} from 'ngx-spinner';
+import {stringify} from 'querystring';
+declare var $: any;
 @Component({
   selector: 'app-bet-sheet',
   templateUrl: './bet-sheet.component.html',
@@ -11,22 +13,34 @@ import {BetSheetModel} from '../models/betSheetModel';
 })
 export class BetSheetComponent implements OnInit {
 
-  BetMatch: BetMatchModel[];
+  betMatchs: BetMatchModel[];
   amount: number = 0;
   estimatedGain: number = 0;
   selectedMatches: any [];
+  loading = true;
+  existDataInSessionStorage: boolean;
 
-  constructor(private sheetCreationService: SheetCreationService) {
+  constructor(private sheetCreationService: SheetCreationService,
+              private spinner: NgxSpinnerService) {
   }
 
   ngOnInit() {
+    this.loading = true;
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 2000);
+    this.loading = false;
+    this.existDataInSessionStorage = stringify(sessionStorage.getItem('betMatch')) !== [].toString() || sessionStorage.getItem('betMatch') !== null;
     this.getAllBetMatch();
+    console.log(this.existDataInSessionStorage);
   }
 
   getAllBetMatch() {
     this.sheetCreationService.getAllBetMatch().subscribe((data) => {
       // @ts-ignore
-      this.BetMatch = data.map((item) => {
+      this.betMatchs = data.map((item) => {
         let betMatch = new BetMatchModel();
         let match = new MatchEntityModel();
         match.fixture_id = item.fixture_id;
@@ -38,17 +52,21 @@ export class BetSheetComponent implements OnInit {
         betMatch.winner = item.winner;
         return betMatch;
       });
+      this.loading = false;
     });
   }
 
   delete(match: any) {
-    this.BetMatch = this.BetMatch.filter(m => m !== match);
+    this.betMatchs = this.betMatchs.filter(m => m !== match);
     this.sheetCreationService.deleteMatch(match);
   }
 
   submitSheet() {
+    $('#modalRegisterForm').show();
+    $('.modal-backdrop').show();
+
     let sheet = new BetSheetModel();
-    sheet.betMatches = this.BetMatch;
+    sheet.betMatches = this.betMatchs;
     this.sheetCreationService.sheetCreation(sheet).subscribe(response => console.log(response));
   }
 

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {GetLiveMatchesService} from '../../_services/get-live-matches.service';
 
 declare let $: any;
@@ -15,12 +15,13 @@ export class GamesComponent implements OnInit {
   liveMatches = [];
   split = [];
   loading = true;
+  @Input() displayFooter;
 
   constructor(private liveMatchesService: GetLiveMatchesService) {
   }
 
   ngOnInit() {
-
+    this.displayFooter = true;
     this.getLiveScores();
   }
 

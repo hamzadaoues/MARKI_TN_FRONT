@@ -3,6 +3,8 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
 import { ErrorStateMatcher } from '@angular/material/core';
+import {NgxSpinner} from 'ngx-spinner/lib/ngx-spinner.enum';
+import {NgxSpinnerService} from 'ngx-spinner';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -19,10 +21,16 @@ export class RegistrationComponent implements OnInit {
   isLoading = false;
   matcher = new MyErrorStateMatcher();
   response = false;
+  errorMessage: string;
+  submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder,
+              private router: Router,
+              private authService: AuthService,
+              private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.submitted = false;
     this.registerForm = this.formBuilder.group({
       name : [null, Validators.required],
       username : [null, Validators.required],
@@ -32,18 +40,24 @@ export class RegistrationComponent implements OnInit {
   }
 
   onFormSubmit(form: NgForm) {
+    this.spinner.show();
     this.isLoading = true;
     this.authService.register(form)
       .subscribe(res => {
         console.log(form);
+        this.submitted = true;
       }, (err) => {
+        this.spinner.hide();
         console.log(err);
-        alert(err.error);
+        this.submitted = true;
+        this.errorMessage = err.error.errors[0].defaultMessage;
         this.error = true;
         this.response = true;
       }, () => {
+        this.spinner.hide();
         this.isLoading = false;
         this.response = true;
+        this.router.navigateByUrl('/login');
       });
   }
 

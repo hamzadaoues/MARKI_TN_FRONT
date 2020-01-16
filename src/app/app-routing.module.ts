@@ -19,6 +19,7 @@ import {LiveNewsComponent} from './layout/live-news/live-news.component';
 import {LiveNewsDetailsComponent} from './live-news-details/live-news-details.component';
 import {BetSheetComponent} from './bet-sheet/bet-sheet.component';
 import {FixturesComponent} from './fixtures/fixtures.component';
+import {ResetPasswordComponent} from './reset-password/reset-password.component';
 
 
 const routes: Routes = [
@@ -46,7 +47,6 @@ const routes: Routes = [
   },
   {
     path: 'in-play',
-    canActivate: [AuthGuard],
     component: InPlayComponent
   },
   {
@@ -55,6 +55,7 @@ const routes: Routes = [
   },
   {
     path: 'my-bet-sheets',
+    canActivate: [AuthGuard],
     component: BetSheetDetailsComponent
   },
   {
@@ -95,7 +96,12 @@ const routes: Routes = [
   },
   {
     path: 'bet-sheet',
+    canActivate: [AuthGuard],
     component: BetSheetComponent
+  },
+  {
+    path: 'resetPassword',
+    component: ResetPasswordComponent
   },
   {
     path: 'Tunisian-Professional-League/:competitionId',

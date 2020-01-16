@@ -46,6 +46,7 @@ import {FixturesComponent} from './fixtures/fixtures.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {PaymentComponent} from './payment/payment.component';
 import { MinimizeLengthPipe } from './minimize-length.pipe';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 
 @NgModule({
@@ -100,7 +101,8 @@ import { MinimizeLengthPipe } from './minimize-length.pipe';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSpinnerModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

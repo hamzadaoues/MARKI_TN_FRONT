@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {AuthService} from '../../_services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,26 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input() pageName;
-
-  constructor() { }
+  currUser = '';
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.getCurrentUser();
   }
 
+  getCurrentUser() {
+    this.authService.getCurrentUser().subscribe(
+      (data: any) => {
+         this.currUser = data.name;
+         console.log(this.currUser);
+      }, (error) => {
+          console.log('error current user');
+          console.log(error);
+      }
+    );
+  }
+
+  logout() {
+    this.authService.logOut();
+  }
 }

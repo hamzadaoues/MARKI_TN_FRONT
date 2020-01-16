@@ -28,3 +28,30 @@
   line-height: 1;
 }
 
+.selectedBetSheet:hover{
+  background: #ff3952;
+  cursor: pointer;
+  color: white !important;
+}
+
+.selectedBetSheet:visited{
+  background: #ff3952;
+  cursor: pointer;
+  color: white !important;
+}
+
+.selectedBetSheet:focus{
+  background: #ff3952;
+  cursor: pointer;
+  color: white !important;
+}
+
+
+.betSheetName:hover{
+  color: white;
+}
+.betSheetName:focus{
+  color: white;
+}
+
+

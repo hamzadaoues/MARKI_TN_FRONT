@@ -1,3 +1,11 @@
 .cancelButton{
   background: #000040;
 }
+
+.modal-open {
+  overflow: scroll;
+}
+
+.closePopUp{
+  font-size: 26px;
+}

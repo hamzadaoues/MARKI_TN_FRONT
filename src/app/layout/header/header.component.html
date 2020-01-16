@@ -14,7 +14,7 @@
             <li [ngClass]="{'active' : pageName === 'In-play'  }"><a routerLink="/in-play">In-play</a></li>
             <li [ngClass]="{'active' : pageName === 'Fixtures'  }"><a routerLink="/fixtures">Fixtures</a></li>
             <li [ngClass]="{'active' : pageName === 'Result'  }"><a routerLink="/results">Results</a></li>
-            <li class="menu_has_children"><a href="#">Standings</a>
+            <li class="menu_has_children"><a routerLink="/PremierLeague/2">Standings</a>
               <ul class="sub-menu">
                 <li [ngClass]="{'active' : pageName === 'Premier League' }" ><a routerLink="/PremierLeague/2">Premier League</a></li>
                 <li [ngClass]="{'active' : pageName === 'Bundesliga'  }"><a routerLink="/Bundesliga/1">Bundesliga</a></li>
@@ -30,17 +30,15 @@
                 <li [ngClass]="{'active' : pageName === 'About-us' }" ><a routerLink="/about-us">About us</a></li>
                 <li [ngClass]="{'active' : pageName === 'Service'  }"><a routerLink="/our-services">Services</a></li>
                 <li [ngClass]="{'active' : pageName === 'Login'  }"><a routerLink="/login">Login</a></li>
-                <li [ngClass]="{'active' : pageName === 'Registration'  }"><a routerLink="/register">Registration</a></li>
+                <li [ngClass]="{'active' : pageName === 'Contact-us'  }"><a routerLink="/contact-us">contact us</a>
+
               </ul>
             </li>
-            <li class="menu_has_children"><a href="#0">blog</a>
-              <ul class="sub-menu">
-                <li><a href="blog.html">Blog page</a></li>
-                <li><a href="blog-details.html">blog single</a></li>
-              </ul>
-            </li>
-            <li [ngClass]="{'active' : pageName === 'Contact-us'  }"><a routerLink="/contact-us">contact us</a>
+            <li *ngIf="currUser === ''" ><a routerLink="/login">Login</a>
+            <li *ngIf="currUser !== ''" ><a (click)="logout()" routerLink="/home">Logout</a>
+            <li *ngIf="currUser === ''" [ngClass]="{'active' : pageName === 'Registration'  }"><a routerLink="/register">Registration</a></li>
             <li [ngClass]="{'active' : pageName === 'Bet Sheet'  }"><a routerLink="/bet-sheet"><i style="font-size: 20px" class="fa fa-shopping-cart"></i></a></li>
+            <li *ngIf="currUser !== ''"><a routerLink="/bet-sheet">Hello {{currUser}}</a></li>
 
           </ul>
         </div>

@@ -1,7 +1,8 @@
 <app-custom-cursor></app-custom-cursor>
 <!--  header-section start  -->
 <app-header [pageName]="'My-Bet-Sheets'"></app-header>
-<section class="play-section section-padding section-bg">
+<app-preloader *ngIf="loading"></app-preloader>
+<section class="play-section section-padding section-bg" *ngIf="betSheetList !== [] && !loading ">
   <div class="container">
     <div class="section-header text-center">
       <h2 class="section-title">My Bet Sheets</h2>
@@ -71,11 +72,11 @@
               <tbody>
 
               <tr *ngFor="let sheet of betSheetList" (click)="selectSheet(sheet)">
-                <td>
-                  <div class="team-name-part">
+                <td class="selectedBetSheet">
+                  <div class="team-name-part selectedBetSheet">
                     <i class="fa fa-futbol-o"></i>
                     <div class="content">
-                      <span class="name">BetSheet {{sheet.id}}</span>
+                      <span class="name betSheetName">BetSheet {{sheet.id}}</span>
                     </div>
                   </div>
                 </td>
@@ -107,12 +108,12 @@
               </thead>
               <tbody>
               <!-- Debut bet Match -->
-              <tr *ngFor="let match of selectedSheet.betMatches">
+              <tr class="selectedBetSheet" *ngFor="let match of selectedSheet.betMatches">
                 <td>
                   <div class="team-name-part">
                     <i class="fa fa-futbol-o"></i>
                     <div class="content">
-                      <span class="name">{{match.home_name | minimizeLength:5}}</span>
+                      <span class="name betSheetName">{{match.home_name | minimizeLength:15}}</span>
                     </div>
                   </div>
                 </td>
@@ -120,19 +121,19 @@
                   <div class="team-name-part">
                     <i class="fa fa-futbol-o"></i>
                     <div class="content">
-                      <span class="name goal">{{match.away_name}}</span>
+                      <span class="name goal betSheetName">{{match.away_name}}</span>
                     </div>
                   </div>
                 </td>
                 <td>
                   <div class="team-name-part">
-                    <span *ngIf="match.finished" class="name">YES</span>
-                    <span *ngIf="!match.finished" class="name">NO</span>
+                    <span *ngIf="match.finished" class="name betSheetName">YES</span>
+                    <span *ngIf="!match.finished" class="name betSheetName">NO</span>
                   </div>
                 </td>
                 <td>
                   <div class="team-name-part">
-                    <span class="name">{{match.winner}}</span>
+                    <span class="namebetSheetName">{{match.winner}}</span>
                   </div>
                 </td>
 
@@ -172,9 +173,16 @@
                           <li>Number of matchs : {{selectedSheet.nbmatch}}</li>
                           <li>Status : <span *ngIf="selectedSheet.finished">Finished</span>
                           <span *ngIf="!selectedSheet.finished">In progress</span></li>
+                          <div class="row">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-4">
+                              <i *ngIf="!selectedSheet.finished" class="fa fa-spinner"></i>
+                            </div>
+                              <div class="col-lg-4"></div>
+                          </div>
                           <li *ngIf="selectedSheet.finished">
-                            <span *ngIf="selectedSheet.wonSheet">You won the sheet !</span>
-                            <span *ngIf="!selectedSheet.wonSheet">You lose the sheet !</span>
+                            <span *ngIf="selectedSheet.state === 'won'">You won the sheet !</span>
+                            <span *ngIf="selectedSheet.state === 'eliminated'">You lose the sheet !</span>
                           </li>
                         </ul>
                       </span>
@@ -199,4 +207,23 @@
 
 </section>
 
-<app-footer></app-footer>
+<div class="container" *ngIf="betSheetList === [] ">
+  <br>
+  <br>
+  <h4 style="text-align: center">You have no bet sheets </h4>
+
+  <div class="text-center"><img src="../assets/empty/empty2c.png" alt="">
+    <br>
+
+    <a style="color: white;" routerLink="/fixtures" class="cmn-btn btn-lg">Bet Now <i
+      class="fa fa-arrow-circle-right"></i></a>
+  </div>
+  <br>
+  <div class="gap"></div>
+</div>
+
+<!-- scroll-to-top start -->
+<app-scroll-to-top></app-scroll-to-top>
+<!-- scroll-to-top end -->
+
+<app-footer *ngIf="!loading"></app-footer>

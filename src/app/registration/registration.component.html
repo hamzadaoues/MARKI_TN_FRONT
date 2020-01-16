@@ -1,4 +1,13 @@
 
+<app-custom-cursor></app-custom-cursor>
+<!--  header-section start  -->
+<app-header [pageName]="'Login'"></app-header>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.4)"
+  size="medium"
+  color="#000040"
+  type="square-jelly-box"
+></ngx-spinner>
 <section class="registration-section section-padding">
   <div class="container">
     <div class="row justify-content-center">
@@ -8,37 +17,51 @@
             <h3 class="title">Create a new account</h3>
             <form class="cmn-form registration-form" [formGroup]="registerForm" (ngSubmit)="onFormSubmit(registerForm.value)">
               <div class="frm-group">
-                <input matInput type="text" name="f-name" id="f-name" placeholder="Full name" formControlName="name"[errorStateMatcher]="matcher">
+                <input matInput type="text" name="f-name" id="f-name"
+                       placeholder="Full name"
+                       formControlName="name"[errorStateMatcher]="matcher"
+                       [ngClass]="{'border border-danger': submitted && error}">&nbsp;&nbsp;<i *ngIf="error && submitted"  class="fa fa-exclamation-circle alert-danger"></i>
                 <mat-error>
                   <span *ngIf="!registerForm.get('name').valid && registerForm.get('name').touched">Please enter your Full Name</span>
                 </mat-error>
               </div>
               <div class="frm-group">
-                <input matInput type="text" name="l-name" id="l-name" placeholder="Username" formControlName="username" [errorStateMatcher]="matcher">
+                <input matInput type="text" name="l-name" id="l-name"
+                       placeholder="Username"
+                       formControlName="username" [errorStateMatcher]="matcher"
+                       [ngClass]="{'border border-danger': submitted && error}">&nbsp;&nbsp;<i *ngIf="error && submitted"  class="fa fa-exclamation-circle alert-danger"></i>
                 <mat-error>
                   <span *ngIf="!registerForm.get('username').valid && registerForm.get('username').touched">Please enter your Username</span>
                 </mat-error>
               </div>
               <div class="frm-group">
-                <input matInput type="email" name="name" id="name" placeholder="Your Email" formControlName="email"[errorStateMatcher]="matcher">
+                <input matInput type="email" name="name" id="name"
+                       placeholder="Your Email"
+                       formControlName="email"[errorStateMatcher]="matcher"
+                       [ngClass]="{'border border-danger': submitted && error}">&nbsp;&nbsp;<i *ngIf="error && submitted"  class="fa fa-exclamation-circle alert-danger"></i>
                 <mat-error>
                   <span *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">Please enter your Email</span>
                 </mat-error>
               </div>
               <div class="frm-group">
-                <input matInput type="password" name="pass" id="pass" placeholder="Your Password" formControlName="password"[errorStateMatcher]="matcher">
+                <input matInput type="password" name="pass" id="pass"
+                       placeholder="Your Password"
+                       formControlName="password"[errorStateMatcher]="matcher"
+                       [ngClass]="{'border border-danger': submitted && error}">&nbsp;&nbsp;<i *ngIf="error && submitted"  class="fa fa-exclamation-circle alert-danger"></i>
                 <mat-error>
                   <span *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">Please enter your Password</span>
                 </mat-error>
               </div>
               <div class="frm-group">
-                <input matInput type="password" name="re-pass" id="re-pass" placeholder="Enter Re-Password" [errorStateMatcher]="matcher">
-              </div>
-              <div *ngIf="isLoading" class="spinner-grow" role="status">
-                <span class="sr-only"></span>
+                <input matInput type="password" name="re-pass" id="re-pass"
+                       placeholder="Enter Re-Password" [errorStateMatcher]="matcher"
+                       [ngClass]="{'border border-danger': submitted && error}">&nbsp;&nbsp;<i *ngIf="error && submitted"  class="fa fa-exclamation-circle alert-danger"></i>
               </div>
               <div *ngIf="!error && response" class="alert alert-success" role="alert">
                 Account Created
+              </div>
+              <div  *ngIf="error" class="alert alert-danger  frm-group" role="alert">
+                {{errorMessage}}
               </div>
               <div class="frm-group">
                 <button type="submit"  [disabled]="!registerForm.valid" class="submit-btn">Sign Up</button>
@@ -50,3 +73,5 @@
     </div>
   </div>
 </section>
+
+<app-footer></app-footer>
